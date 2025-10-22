@@ -1,0 +1,24 @@
+{
+  "name": "from-what-broken-to-what-changed",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "experiments": "slidev experiments.md --open --force",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@iconify-json/carbon": "^1.2.14",
+    "@iconify-json/logos": "^1.2.9",
+    "@iconify-json/ri": "^1.2.6",
+    "@slidev/cli": "^52.2.5",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "chart.js": "^4.5.1",
+    "chartjs-plugin-annotation": "^3.1.0",
+    "slidev-addon-fancy-arrow": "^0.13.11",
+    "slidev-addon-qrcode": "^1.0.2",
+    "vue": "^3.5.22"
+  }
+}
