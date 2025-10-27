@@ -94,57 +94,129 @@ Quick personal introductions - both deeply involved in OpenFeature community and
 
 ---
 layout: default
-class: px-12 py-8
+class: px-10 py-4
 ---
 
-# Feature Flags - Powerful but Challenging
+# Feature Flags at Scale
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-2 gap-6 mt-1">
 
 <div v-click="1">
 
-## The Power 💪
+<div bg="green-950" rounded-xl>
+<div bg="gradient-to-br from-green-900/90 to-green-800/70" border="2 solid green-700/50" rounded-xl px-4 py-3>
 
-<div class="text-sm space-y-2 mt-4">
+## <span text-green-400 text-lg>The Power</span> 💪
 
-- 🎚️ **Toggle Control**: Turn features on/off without deploying code
-- 🚀 **Progressive Rollouts**: Gradual releases and canary deployments
-- 📊 **A/B Testing**: Experiments and variant testing
-- 🔐 **Access Control**: Permissions and targeting rules
+<div class="text-sm space-y-1.5 mt-3">
 
+<div flex items-start gap-2>
+  <div text-lg>🎚️</div>
+  <div><span font-semibold text-sm>Runtime Control</span><br/><span text-xs opacity-80>Toggle features without redeploying</span></div>
+</div>
+
+<div flex items-start gap-2>
+  <div text-lg>🚀</div>
+  <div><span font-semibold text-sm>Progressive Rollouts</span><br/><span text-xs opacity-80>Canary deployments at scale</span></div>
+</div>
+
+<div flex items-start gap-2>
+  <div text-lg>🔬</div>
+  <div><span font-semibold text-sm>Experimentation</span><br/><span text-xs opacity-80>A/B testing & variant analysis</span></div>
+</div>
+
+<div flex items-start gap-2>
+  <div text-lg>🎯</div>
+  <div><span font-semibold text-sm>Precise Targeting</span><br/><span text-xs opacity-80>User segments & permissions</span></div>
+</div>
+
+</div>
+</div>
 </div>
 </div>
 
 <div v-click="2">
 
-## ...But They Come With Challenges ⚠️
+<div bg="red-950" rounded-xl>
+<div bg="gradient-to-br from-red-900/90 to-orange-900/70" border="2 solid red-700/50" rounded-xl px-4 py-3>
 
-<div class="text-sm space-y-3 mt-4 opacity-80">
+## <span text-red-400 text-lg>The Challenges</span> ⚠️
 
-- How do you manage them at scale?
-- How do you keep them in sync across environments?
-- How do you ensure type safety in your code?
-- How do you integrate them into your SDLC?
+<div class="text-sm space-y-1.5 mt-3">
+
+<div flex items-start gap-2>
+  <div text-lg>🔀</div>
+  <div><span font-semibold text-sm>Flag Existence</span><br/><span text-xs opacity-80>No guarantee flag exists in management tool</span></div>
+</div>
+
+<div flex items-start gap-2>
+  <div text-lg>🐛</div>
+  <div><span font-semibold text-sm>Runtime Errors</span><br/><span text-xs opacity-80>Typos & undefined flags have unexpected behavior</span></div>
+</div>
+
+<div flex items-start gap-2>
+  <div text-lg>🔄</div>
+  <div><span font-semibold text-sm>Context Switching</span><br/><span text-xs opacity-80>Multiple tools slow development</span></div>
+</div>
+
+<div flex items-start gap-2>
+  <div text-lg>👥</div>
+  <div><span font-semibold text-sm>Manual Coordination</span><br/><span text-xs opacity-80>Teams blocked waiting for flag setup</span></div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
 
 </div>
 
-<div v-click="3" class="mt-6">
+<div v-click="3" class="mt-3">
 
-```typescript {all|3|all}
+<div bg="zinc-900/95" border="2 solid zinc-700" rounded-lg px-4 py-3>
+
+<div class="text-base mb-2 font-semibold">Manually managing feature flags is error-prone</div>
+
+<div class="grid grid-cols-2 gap-4">
+
+<div>
+
+```typescript
 const client = OpenFeature.getClient();
 const showNewCheckout = client.getBooleanValue(
-  'new-checkout-flow',  // ← How do you ensure this exists?
+  'new-checkout-flow', // <-- string literal
   false
 );
 ```
 
 </div>
+
+<div class="flex flex-col gap-1.5 text-xs">
+
+<div v-click="4" bg="red-900/30" border="1 solid red-700/50" rounded px-2 py-1.5>
+  <div font-semibold text-red-400 text-sm>❌ Does it exist?</div>
+  <div opacity-70 mt-0.5>No guarantee in any flag management system</div>
 </div>
 
+<div v-click="5" bg="red-900/30" border="1 solid red-700/50" rounded px-2 py-1.5>
+  <div font-semibold text-red-400 text-sm>❌ Correct type?</div>
+  <div opacity-70 mt-0.5>Could be string, number, object...</div>
+</div>
+
+<div v-click="6" bg="red-900/30" border="1 solid red-700/50" rounded px-2 py-1.5>
+  <div font-semibold text-red-400 text-sm>❌ What's the intent?</div>
+  <div opacity-70 mt-0.5>No context on how the flag should be used</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
 </div>
 
 <!--
-Feature flags are incredibly powerful for progressive delivery, but at scale they introduce coordination challenges. Let's look at what this actually looks like for a developer.
+Feature flags are incredibly powerful for progressive delivery, but at scale they introduce serious coordination challenges. The string literal is the heart of the problem—no type safety, no validation, just hope. Let's look at what this actually looks like for a developer.
 -->
 
 ---
