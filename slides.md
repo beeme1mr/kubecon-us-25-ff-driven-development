@@ -226,7 +226,7 @@ const showNewCheckout = client.getBooleanValue(
 <div bg="orange-900/30" border="2 solid orange-800" rounded-lg px-4 py-3>
   <div flex items-center gap-2>
     <div i-carbon:bot text-orange-300 text-xl />
-    <span class="text-sm font-semibold">Wouldn't it be nice to automate this...</span>
+    <span class="text-sm font-semibold">We could really use some automation...</span>
   </div>
 </div>
 </div>
@@ -313,8 +313,6 @@ hide: true
 
 </div>
 
-<!-- [Placeholder: Diagram showing multiple environments with misaligned flag configurations] -->
-
 <!--
 When you're doing daily releases, these problems multiply exponentially—flag hygiene becomes critical for reliability
 -->
@@ -324,38 +322,40 @@ layout: center
 class: text-center
 ---
 
-<div class="mt-4 text-xl opacity-80 leading-relaxed max-w-3xl mx-auto">
+<div>
 
   <div class="text-3xl font-semibold">
     In Kubernetes, we can declare a desired state...
   </div>
 
   <div v-click class="mt-8 text-4xl font-semibold">
-    Wouldn't it be nice if feature flags<br/>were also <span font-serif text-purple-400>declarative</span>?
+    Wouldn't it be nice if feature flags<br/>were also <span text-purple-400 v-mark="{ at: 1, color: '#ABABFF', type: 'underline' }">declarative</span>?
   </div>
 
 </div>
-
-<!-- [Placeholder: Side-by-side comparison of Kubernetes deployment YAML and feature flag manifest YAML] -->
 
 <!--
 KubeCon audience knows declarative config well—this should feel familiar and powerful
 -->
 
 ---
-layout: two-cols
-class: px-8 py-8
+layout: default
+class: px-12 py-8
 ---
 
 # Introducing the Flag Manifest
 
-<div class="text-base opacity-80 mt-4 mb-6">
+<div class="text-lg opacity-70 mb-8">A single source of truth for your flag definitions—living in your repository, alongside your code</div>
 
-A flag manifest is the single source of truth for your flag definitions—flag keys, types, variants, descriptions, and metadata. It lives in your repository, alongside your code.
+<div class="grid grid-cols-2 gap-8">
 
-</div>
+<div>
 
-```yaml
+### The Manifest
+
+<div class="mt-4" />
+
+```yaml {all|6|5|4|all}
 # flags.yaml - checked into version control
 flags:
   new-checkout-flow:
@@ -369,40 +369,56 @@ flags:
     defaultValue: stripe
 ```
 
-::right::
-
-<div class="pl-8 space-y-4 mt-20">
-
-<div v-click="1" class="flex items-start gap-3">
-<div class="text-2xl">✅</div>
-<div>
-<div class="font-semibold">Type safety</div>
-<div class="text-sm opacity-80">boolean, string, number, object</div>
+<div v-click="4" mt-6>
+<div bg="green-900/30" border="2 solid green-800" rounded-lg px-4 py-3>
+  <div flex items-center gap-2>
+    <div i-carbon:idea text-green-300 text-xl />
+    <span class="text-sm font-semibold">Version-controlled, reviewable, and validated—just like Kubernetes manifests</span>
+  </div>
 </div>
 </div>
 
-<div v-click="2" class="flex items-start gap-3">
-<div class="text-2xl">✅</div>
-<div>
-<div class="font-semibold">Variant definitions</div>
-<div class="text-sm opacity-80">Define allowed values</div>
-</div>
 </div>
 
-<div v-click="3" class="flex items-start gap-3">
-<div class="text-2xl">✅</div>
-<div>
-<div class="font-semibold">Default values</div>
-<div class="text-sm opacity-80">Safe fallbacks</div>
-</div>
+<div v-click="1">
+
+### What You Get
+
+<div class="space-y-3 mt-4">
+
+
+<div v-click="1" border="2 solid purple-800/50" rounded-lg overflow-hidden bg="purple-900/20" backdrop-blur-sm>
+  <div flex items-center bg="purple-800/40" backdrop-blur px-4 py-3 gap-2>
+    <div i-carbon:settings text-purple-300 text-lg />
+    <span font-bold text-base>Default Values</span>
+  </div>
+  <div px-4 py-3 text-sm opacity-90>
+    Safe fallbacks for all environments
+  </div>
 </div>
 
-<div v-click="4" class="flex items-start gap-3">
-<div class="text-2xl">✅</div>
-<div>
-<div class="font-semibold">Human-readable descriptions</div>
-<div class="text-sm opacity-80">Self-documenting</div>
+<div v-click="2" border="2 solid purple-800/50" rounded-lg overflow-hidden bg="purple-900/20" backdrop-blur-sm>
+  <div flex items-center bg="purple-800/40" backdrop-blur px-4 py-3 gap-2>
+    <div i-carbon:document text-purple-300 text-lg />
+    <span font-bold text-base>Self-Documenting</span>
+  </div>
+  <div px-4 py-3 text-sm opacity-90>
+    Human-readable descriptions
+  </div>
 </div>
+
+<div v-click="3" border="2 solid purple-800/50" rounded-lg overflow-hidden bg="purple-900/20" backdrop-blur-sm>
+  <div flex items-center bg="purple-800/40" backdrop-blur px-4 py-3 gap-2>
+    <div i-carbon:type-pattern text-purple-300 text-lg />
+    <span font-bold text-base>Type Safety</span>
+  </div>
+  <div px-4 py-3 text-sm opacity-90>
+    boolean, string, number, object
+  </div>
+</div>
+
+</div>
+
 </div>
 
 </div>

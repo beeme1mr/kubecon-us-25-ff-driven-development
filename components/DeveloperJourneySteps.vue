@@ -144,29 +144,30 @@ const currentStep = computed(() =>
   .journey-steps__panel {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 0.85rem;
+    gap: 1.1rem;
     align-items: start;
-    padding: 0.75rem 0.85rem;
-    border-radius: 0.95rem;
-    border: 1px solid var(--steps-border-color);
-    background: linear-gradient(135deg, var(--steps-bg-primary), var(--steps-bg-secondary));
-    box-shadow: 0 20px 42px rgba(60, 66, 110, 0.28);
-    /* Optimize rendering */
+    padding: 1.15rem 1.35rem;
+    border-radius: 1.15rem;
+    border: 1.5px solid #a3a3ff;
+    background: linear-gradient(135deg, rgba(54,56,85,0.82), rgba(26,28,44,0.92));
+    box-shadow: 0 8px 32px 0 rgba(60,66,110,0.38), 0 0 0 2px rgba(141,141,255,0.08);
     will-change: opacity, transform;
     contain: layout style;
+    transition: box-shadow 0.3s var(--steps-ease), background 0.3s var(--steps-ease);
   }
   
   .journey-steps__panel-icon {
-    width: 2.4rem;
-    height: 2.4rem;
-    border-radius: 0.85rem;
-    background: rgba(141, 141, 255, 0.22);
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, rgba(141,141,255,0.32), rgba(183,185,255,0.18));
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
-    color: var(--steps-purple-light);
+    font-size: 1.35rem;
+    color: #e0e0ff;
     flex-shrink: 0;
+    box-shadow: 0 2px 12px rgba(141,141,255,0.12);
   }
   
   .journey-steps__panel-body {
@@ -175,39 +176,50 @@ const currentStep = computed(() =>
   
   .journey-steps__panel-heading {
     display: flex;
-    gap: 0.75rem;
+    gap: 0.85rem;
     align-items: baseline;
     flex-wrap: wrap;
+    margin-bottom: 0.15rem;
   }
-  
+
   .journey-steps__panel-step {
-    font-size: 0.68rem;
+    font-size: 0.74rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: rgba(214, 215, 255, 0.7);
+    letter-spacing: 0.09em;
+    color: #b7b9ff;
     flex-shrink: 0;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(141,141,255,0.18);
   }
-  
+
   .journey-steps__panel-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: rgba(241, 241, 255, 0.95);
-    line-height: 1.3;
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #f3f3ff;
+    line-height: 1.32;
+    letter-spacing: 0.01em;
+    text-shadow: 0 2px 8px rgba(141,141,255,0.12);
   }
-  
+
   .journey-steps__panel-detail {
-    margin-top: 0.35rem;
-    font-size: 0.78rem;
-    line-height: 1.5;
-    color: rgba(217, 218, 255, 0.85);
+    margin-top: 0.45rem;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #e3e4ff;
+    text-shadow: 0 1px 4px rgba(141,141,255,0.08);
+    font-weight: 400;
+    letter-spacing: 0.01em;
   }
-  
+
   .journey-steps__panel-detail :deep(code) {
-    font-size: 0.75rem;
-    padding: 0.05rem 0.35rem;
-    background: rgba(52, 54, 78, 0.85);
+    font-size: 0.85rem;
+    padding: 0.08rem 0.45rem;
+    background: rgba(52, 54, 78, 0.95);
     border-radius: 0.35rem;
     font-family: 'Fira Code', monospace;
+    color: #ffd700;
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(141,141,255,0.08);
   }
   
   /* Transition animations */
