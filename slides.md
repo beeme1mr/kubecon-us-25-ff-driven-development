@@ -429,84 +429,144 @@ Like a Kubernetes manifest, this is version-controlled, reviewable, and can be v
 
 ---
 layout: default
-class: px-12 py-8
 ---
 
 # Feature Flag Driven Development (FFDD)
 
-<div class="text-lg opacity-80 mb-8">
-
-FFDD treats feature flags as first-class citizens in your SDLC by:
-
+<div class="text-xl opacity-80 mb-10">
+Treat feature flags as first-class citizens in your SDLC
 </div>
 
-<div class="space-y-4 text-base">
+<div class="space-y-2 w-130">
 
-<div v-click="1" class="flex items-start gap-4">
-<div class="text-2xl font-bold text-purple-500">1</div>
-<div class="pt-1">Defining flags declaratively in version control</div>
+<div v-click="1" class="card-purple glow-purple-soft px-1 py-1 transition-all duration-300">
+<div flex items-center gap-4>
+  <div 
+    class="bg-gradient-purple w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0"
+    style="box-shadow: 0 2px 12px rgba(141,141,255,0.15);"
+  >
+    <div class="text-2xl font-bold text-purple-bright">1</div>
+  </div>
+  <div class="text-lg text-purple-light">Defining flags declaratively in version control</div>
+</div>
 </div>
 
-<div v-click="2" class="flex items-start gap-4">
-<div class="text-2xl font-bold text-purple-500">2</div>
-<div class="pt-1">Generating type-safe code from the manifest</div>
+<div v-click="2" class="card-purple glow-purple-soft px-1 py-1 transition-all duration-300">
+<div flex items-center gap-4>
+  <div 
+    class="bg-gradient-purple w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0"
+    style="box-shadow: 0 2px 12px rgba(141,141,255,0.15);"
+  >
+    <div class="text-2xl font-bold text-purple-bright">2</div>
+  </div>
+  <div class="text-lg text-purple-light">Generating type-safe code from the manifest</div>
+</div>
 </div>
 
-<div v-click="3" class="flex items-start gap-4">
-<div class="text-2xl font-bold text-purple-500">3</div>
-<div class="pt-1">Validating flag configuration in CI</div>
+<div v-click="3" class="card-purple glow-purple-soft px-1 py-1 transition-all duration-300">
+<div flex items-center gap-4>
+  <div 
+    class="bg-gradient-purple w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0"
+    style="box-shadow: 0 2px 12px rgba(141,141,255,0.15);"
+  >
+    <div class="text-2xl font-bold text-purple-bright">3</div>
+  </div>
+  <div class="text-lg text-purple-light">Validating flag configuration in CI</div>
+</div>
 </div>
 
-<div v-click="4" class="flex items-start gap-4">
-<div class="text-2xl font-bold text-purple-500">4</div>
-<div class="pt-1">Syncing flags to management systems via GitOps</div>
+<div v-click="4" class="card-purple glow-purple-soft px-1 py-1 transition-all duration-300">
+<div flex items-center gap-4>
+  <div 
+    class="bg-gradient-purple w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0"
+    style="box-shadow: 0 2px 12px rgba(141,141,255,0.15);"
+  >
+    <div class="text-2xl font-bold text-purple-bright">4</div>
+  </div>
+  <div class="text-lg text-purple-light">Syncing flags to management systems via GitOps</div>
+</div>
 </div>
 
-<div v-click="5" class="flex items-start gap-4">
-<div class="text-2xl font-bold text-purple-500">5</div>
-<div class="pt-1">Promoting flags safely across environments</div>
+<div v-click="5" class="card-purple glow-purple-soft px-1 py-1 transition-all duration-300">
+<div flex items-center gap-4>
+  <div 
+    class="bg-gradient-purple w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0"
+    style="box-shadow: 0 2px 12px rgba(141,141,255,0.15);"
+  >
+    <div class="text-2xl font-bold text-purple-bright">5</div>
+  </div>
+  <div class="text-lg text-purple-light">Promoting flags safely across environments</div>
+</div>
 </div>
 
 </div>
-
-<!-- [Placeholder: Workflow diagram showing the FFDD pipeline] -->
-
-<!--
-This is the core thesis—flags shouldn't be an afterthought, they should be integrated into your workflow
--->
 
 ---
-layout: center
-class: text-center
+layout: default
 ---
 
-# Built on OpenFeature
+# Powered by OpenFeature
 
-<div class="mt-8">
+<div class="text-xl opacity-70 mb-6">The CNCF incubating project for feature flagging</div>
 
-<!-- [Placeholder: OpenFeature logo with CNCF branding, CLI tool icon] -->
-
-<div v-click class="text-xl opacity-80 mt-8">
-
-FFDD is powered by <span text-purple-500>**OpenFeature**</span>, the CNCF standard for feature flagging,
-
-and the <span text-purple-500>**OpenFeature CLI**</span>.
-
-</div>
-
-</div>
-
-<div v-click mt-8>
-<div bg="blue-900/30" border="2 solid blue-800" rounded-lg px-5 py-3>
-  <div flex items-center gap-2>
-    <div i-carbon:idea text-blue-300 text-xl />
-    <span>Standards-based approach means vendor neutrality and interoperability</span>
+<div class="mt-14 max-w-4xl mx-auto">
+<div class="card-purple glow-purple-soft px-12 py-6">
+  <div class="text-2xl font-semibold mb-6">Why OpenFeature?</div>
+  <div class="mt-8 grid grid-cols-2 gap-x-12 gap-y-12 text-left">
+    <div class="flex items-start gap-4">
+      <div 
+        class="bg-gradient-purple w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 2px 12px rgba(141,141,255,0.15);"
+      >
+        <div class="i-carbon:partnership text-purple-bright text-xl" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light mb-1">Vendor Neutral</div>
+        <div class="text-sm opacity-80">Switch providers without rewriting code</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-4">
+      <div 
+        class="bg-gradient-purple w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 2px 12px rgba(141,141,255,0.15);"
+      >
+        <div class="i-carbon:connect text-purple-bright text-xl" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light mb-1">Interoperable</div>
+        <div class="text-sm opacity-80">Works across languages and platforms</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-4">
+      <div 
+        class="bg-gradient-purple w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 2px 12px rgba(141,141,255,0.15);"
+      >
+        <div class="i-carbon:user-multiple text-purple-bright text-xl" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light mb-1">Community-Driven</div>
+        <div class="text-sm opacity-80">Vibrant, active community</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-4">
+      <div 
+        class="bg-gradient-purple w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 2px 12px rgba(141,141,255,0.15);"
+      >
+        <div class="i-carbon:tool-box text-purple-bright text-xl" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light mb-1">Shared Tooling</div>
+        <div class="text-sm opacity-80">CLI, SDKs, and ecosystem tools</div>
+      </div>
+    </div>
   </div>
 </div>
 </div>
 
 <!--
-Standards-based approach means vendor neutrality and interoperability
+OpenFeature provides the foundation for FFDD—vendor neutrality, cross-platform support, and shared tooling that works regardless of your flag provider
 -->
 
 ---
