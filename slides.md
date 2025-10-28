@@ -21,7 +21,10 @@ info: |
   KubeCon + CloudNativeCon 2025
 
   Learn how to treat feature flags as first-class citizens in your development workflow using the OpenFeature CLI and GitOps practices.
+addons:
+  - fancy-arrow
 ---
+<!-- markdownlint-disable -->
 
 <div translate-x--14>
   <h1>
@@ -97,18 +100,20 @@ layout: default
 class: px-10 py-4
 ---
 
-# Feature Flags at Scale
+# Feature Flags are Powerful...
 
-<div class="grid grid-cols-2 gap-6 mt-1">
+<div v-click="2" class="text-xl opacity-70 mb-6">...but they're not without their challenges</div>
+
+<div class="grid grid-cols-2 gap-6 mt-16 w-3xl mx-auto">
 
 <div v-click="1">
 
 <div bg="green-950" rounded-xl>
 <div bg="gradient-to-br from-green-900/90 to-green-800/70" border="2 solid green-700/50" rounded-xl px-4 py-3>
 
-## <span text-green-400 text-lg>The Power</span> 💪
+## <span text-green-400 text-xl font-bold>The Power</span> 💪
 
-<div class="text-sm space-y-1.5 mt-3">
+<div class="text-sm space-y-4 mt-3">
 
 <div flex items-start gap-2>
   <div text-lg>🎚️</div>
@@ -135,14 +140,14 @@ class: px-10 py-4
 </div>
 </div>
 
-<div v-click="2">
+<div v-click="3">
 
 <div bg="red-950" rounded-xl>
 <div bg="gradient-to-br from-red-900/90 to-orange-900/70" border="2 solid red-700/50" rounded-xl px-4 py-3>
 
-## <span text-red-400 text-lg>The Challenges</span> ⚠️
+## <span text-red-400 text-xl font-bold>The Challenges</span> ⚠️
 
-<div class="text-sm space-y-1.5 mt-3">
+<div class="text-sm space-y-4 mt-3">
 
 <div flex items-start gap-2>
   <div text-lg>🔀</div>
@@ -171,50 +176,6 @@ class: px-10 py-4
 
 </div>
 
-<div v-click="3" class="mt-3">
-
-<div bg="zinc-900/95" border="2 solid zinc-700" rounded-lg px-4 py-3>
-
-<div class="text-base mb-2 font-semibold">Manually managing feature flags is error-prone</div>
-
-<div class="grid grid-cols-2 gap-4">
-
-<div>
-
-```typescript
-const client = OpenFeature.getClient();
-const showNewCheckout = client.getBooleanValue(
-  'new-checkout-flow', // <-- string literal
-  false
-);
-```
-
-</div>
-
-<div class="flex flex-col gap-1.5 text-xs">
-
-<div v-click="4" bg="red-900/30" border="1 solid red-700/50" rounded px-2 py-1.5>
-  <div font-semibold text-red-400 text-sm>❌ Does it exist?</div>
-  <div opacity-70 mt-0.5>No guarantee in any flag management system</div>
-</div>
-
-<div v-click="5" bg="red-900/30" border="1 solid red-700/50" rounded px-2 py-1.5>
-  <div font-semibold text-red-400 text-sm>❌ Correct type?</div>
-  <div opacity-70 mt-0.5>Could be string, number, object...</div>
-</div>
-
-<div v-click="6" bg="red-900/30" border="1 solid red-700/50" rounded px-2 py-1.5>
-  <div font-semibold text-red-400 text-sm>❌ What's the intent?</div>
-  <div opacity-70 mt-0.5>No context on how the flag should be used</div>
-</div>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
 <!--
 Feature flags are incredibly powerful for progressive delivery, but at scale they introduce serious coordination challenges. The string literal is the heart of the problem—no type safety, no validation, just hope. Let's look at what this actually looks like for a developer.
 -->
@@ -226,27 +187,10 @@ class: px-12 py-8
 
 # The Developer Journey
 
-<div class="text-lg space-y-3 mt-6">
 
-<div v-click="1">🎫 Get a ticket assigned: 'Add feature flag for new checkout flow'</div>
+<DeveloperJourneyFlow :active="$clicks" class="mt-16 max-w-3xl mx-auto" />
 
-<div v-click="2">🖥️ Open your flag management tool <span class="text-red-400">(context switch #1)</span></div>
-
-<div v-click="3">➕ Create the flag: `new-checkout-flow`</div>
-
-<div v-click="4">💻 Switch back to your IDE <span class="text-red-400">(context switch #2)</span></div>
-
-<div v-click="5">⌨️ Type the flag key into your code... wait, was it `new_checkout_flow` or `new-checkout-flow`?</div>
-
-<div v-click="6">📝 Open a PR for team review</div>
-
-<div v-click="7">👀 Reviewer asks: 'Does this flag exist in our management tool?'</div>
-
-<div v-click="8">🔍 You switch back to the management tool to verify <span class="text-red-400">(context switch #3)</span></div>
-
-</div>
-
-<!-- [Placeholder: Animated workflow showing developer bouncing between tools] -->
+<DeveloperJourneySteps :active="$clicks" class="mt-8 max-w-3xl mx-auto" />
 
 <!--
 This is the reality—multiple context switches, manual verification, and plenty of room for human error. Each step introduces friction and potential mistakes.
@@ -257,58 +201,94 @@ layout: default
 class: px-12 py-8
 ---
 
-# The Hidden Problems
+# The String Literal Problem
 
-<div class="grid grid-cols-3 gap-6 mt-8">
+<div class="text-lg opacity-70 mb-8">Manual flag management introduces runtime risk</div>
 
-<div v-click="1" class="space-y-3">
+<div class="grid grid-cols-2 gap-8">
 
-### Developer Flow Disruption 🔄
+<div>
 
-<div class="text-sm opacity-80">
+### Traditional Approach
 
-- Constant context switching between tools
-- Breaking focus to verify flag existence
-- Slows down development velocity
+<div class="mt-4" />
 
+```typescript
+const client = OpenFeature.getClient();
+
+const showNewCheckout = client.getBooleanValue(
+  'new-checkout-flow', // <-- string literal
+  false
+);
+```
+
+<div v-click="4" mt-6>
+<div bg="orange-900/30" border="2 solid orange-800" rounded-lg px-4 py-3>
+  <div flex items-center gap-2>
+    <div i-carbon:bot text-orange-300 text-xl />
+    <span class="text-sm font-semibold">Wouldn't it be nice to automate this...</span>
+  </div>
 </div>
 </div>
 
-<div v-click="2" class="space-y-3">
+</div>
 
-### Type Safety Issues ⚠️
+<div v-click>
 
-<div class="text-sm opacity-80">
+### Leads to Uncertainty
 
-- Copy-paste introduces typos
-- Flag types can mismatch
-- No compile-time validation—bugs found at runtime
+<div class="space-y-3 mt-4">
 
+<div v-click="1">
+<div border="2 solid red-800/50" rounded-lg overflow-hidden bg="red-900/20" backdrop-blur-sm>
+  <div flex items-center bg="red-800/40" backdrop-blur px-4 py-3 gap-2>
+    <div i-carbon:unknown text-red-300 text-lg />
+    <span font-bold text-base>Does it exist?</span>
+  </div>
+  <div px-4 py-3 text-sm opacity-90>
+    No guarantee the flag exists in any management system
+  </div>
 </div>
 </div>
 
-<div v-click="3" class="space-y-3">
+<div v-click="2">
+<div border="2 solid red-800/50" rounded-lg overflow-hidden bg="red-900/20" backdrop-blur-sm>
+  <div flex items-center bg="red-800/40" backdrop-blur px-4 py-3 gap-2>
+    <div i-carbon:type-pattern text-red-300 text-lg />
+    <span font-bold text-base>Correct type?</span>
+  </div>
+  <div px-4 py-3 text-sm opacity-90>
+    Could be boolean, string, number, object—no way to know
+  </div>
+</div>
+</div>
 
-### Review Blindness 👀
-
-<div class="text-sm opacity-80">
-
-- Reviewers can't verify flags exist without opening another tool
-- No way to validate flag configuration
-- Can't catch drift between environments in PR review
+<div v-click="3">
+<div border="2 solid red-800/50" rounded-lg overflow-hidden bg="red-900/20" backdrop-blur-sm>
+  <div flex items-center bg="red-800/40" backdrop-blur px-4 py-3 gap-2>
+    <div i-carbon:help text-red-300 text-lg />
+    <span font-bold text-base>What's the intent?</span>
+  </div>
+  <div px-4 py-3 text-sm opacity-90>
+    No context on how the flag should be used or configured
+  </div>
+</div>
+</div>
 
 </div>
+
 </div>
 
 </div>
 
 <!--
-These aren't edge cases—this happens multiple times per day in active development teams
+The string literal is the heart of the problem—no type safety, no validation, just hope. This happens multiple times per day in active development teams.
 -->
 
 ---
 layout: default
 class: px-12 py-8
+hide: true
 ---
 
 # The Problem Compounds at Scale
@@ -344,13 +324,15 @@ layout: center
 class: text-center
 ---
 
-# What If Flags Were Declarative?
+<div class="mt-4 text-xl opacity-80 leading-relaxed max-w-3xl mx-auto">
 
-<div v-click class="mt-8 text-xl opacity-80">
+  <div class="text-3xl font-semibold">
+    In Kubernetes, we can declare a desired state...
+  </div>
 
-In the Kubernetes world, you declare your desired state in manifests.
-
-**What if feature flags worked the same way?**
+  <div v-click class="mt-8 text-4xl font-semibold">
+    Wouldn't it be nice if feature flags<br/>were also <span font-serif text-purple-400>declarative</span>?
+  </div>
 
 </div>
 
