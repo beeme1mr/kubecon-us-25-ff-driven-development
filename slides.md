@@ -97,80 +97,125 @@ Quick personal introductions - both deeply involved in OpenFeature community and
 
 ---
 layout: default
-class: px-10 py-4
+class: px-10 py-8
 ---
 
 # Feature Flags are Powerful...
 
-<div v-click="2" class="text-xl opacity-70 mb-6">...but they're not without their challenges</div>
+<div v-click="2" class="text-xl opacity-70 mb-8">...but they're not without their challenges</div>
 
-<div class="grid grid-cols-2 gap-6 mt-16 w-3xl mx-auto">
+<div class="grid grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
 
 <div v-click="1">
-
-<div bg="green-950" rounded-xl>
-<div bg="gradient-to-br from-green-900/90 to-green-800/70" border="2 solid green-700/50" rounded-xl px-4 py-3>
-
-## <span text-green-400 text-xl font-bold>The Power</span> 💪
-
-<div class="text-sm space-y-4 mt-3">
-
-<div flex items-start gap-2>
-  <div text-lg>🎚️</div>
-  <div><span font-semibold text-sm>Runtime Control</span><br/><span text-xs opacity-80>Toggle features without redeploying</span></div>
-</div>
-
-<div flex items-start gap-2>
-  <div text-lg>🚀</div>
-  <div><span font-semibold text-sm>Progressive Rollouts</span><br/><span text-xs opacity-80>Canary deployments at scale</span></div>
-</div>
-
-<div flex items-start gap-2>
-  <div text-lg>🔬</div>
-  <div><span font-semibold text-sm>Experimentation</span><br/><span text-xs opacity-80>A/B testing & variant analysis</span></div>
-</div>
-
-<div flex items-start gap-2>
-  <div text-lg>🎯</div>
-  <div><span font-semibold text-sm>Precise Targeting</span><br/><span text-xs opacity-80>User segments & permissions</span></div>
-</div>
-
-</div>
-</div>
+<div class="card-purple glow-purple-soft px-6 py-5">
+  <div class="text-2xl font-bold text-gradient-purple mb-4 leading-normal">The Power</div>
+  <div class="space-y-3">
+    <div class="flex items-start gap-3">
+      <div 
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:settings-adjust text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Runtime Control</div>
+        <div class="text-sm opacity-70">Toggle features without redeploying</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div 
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:launch text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Progressive Rollouts</div>
+        <div class="text-sm opacity-70">Canary deployments at scale</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div 
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:chart-line text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Experimentation</div>
+        <div class="text-sm opacity-70">A/B testing & variant analysis</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div 
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:user-profile text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Precise Targeting</div>
+        <div class="text-sm opacity-70">User segments & permissions</div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 
 <div v-click="3">
+<div class="card-purple glow-purple-soft px-6 py-5">
+  <div class="text-2xl font-bold text-gradient-purple mb-4 leading-normal">The Challenges</div>
 
-<div bg="red-950" rounded-xl>
-<div bg="gradient-to-br from-red-900/90 to-orange-900/70" border="2 solid red-700/50" rounded-xl px-4 py-3>
-
-## <span text-red-400 text-xl font-bold>The Challenges</span> ⚠️
-
-<div class="text-sm space-y-4 mt-3">
-
-<div flex items-start gap-2>
-  <div text-lg>🔀</div>
-  <div><span font-semibold text-sm>Flag Existence</span><br/><span text-xs opacity-80>No guarantee flag exists in management tool</span></div>
-</div>
-
-<div flex items-start gap-2>
-  <div text-lg>🐛</div>
-  <div><span font-semibold text-sm>Runtime Errors</span><br/><span text-xs opacity-80>Typos & undefined flags have unexpected behavior</span></div>
-</div>
-
-<div flex items-start gap-2>
-  <div text-lg>🔄</div>
-  <div><span font-semibold text-sm>Context Switching</span><br/><span text-xs opacity-80>Multiple tools slow development</span></div>
-</div>
-
-<div flex items-start gap-2>
-  <div text-lg>👥</div>
-  <div><span font-semibold text-sm>Manual Coordination</span><br/><span text-xs opacity-80>Teams blocked waiting for flag setup</span></div>
-</div>
-
-</div>
-</div>
+  <div class="space-y-3">
+    <div class="flex items-start gap-3">
+      <div 
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:unknown text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Flag Existence</div>
+        <div class="text-sm opacity-70">No guarantee flag exists in management tool</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div 
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:debug text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Runtime Errors</div>
+        <div class="text-sm opacity-70">Typos & undefined flags have unexpected behavior</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div 
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:application text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Context Switching</div>
+        <div class="text-sm opacity-70">Multiple tools slow development</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div 
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:user-multiple text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Manual Coordination</div>
+        <div class="text-sm opacity-70">Teams blocked waiting for flag setup</div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 
@@ -223,9 +268,9 @@ const showNewCheckout = client.getBooleanValue(
 ```
 
 <div v-click="4" mt-6>
-<div bg="orange-900/30" border="2 solid orange-800" rounded-lg px-4 py-3>
+<div class="card-purple glow-purple-soft px-4 py-3">
   <div flex items-center gap-2>
-    <div i-carbon:bot text-orange-300 text-xl />
+    <div i-carbon:bot text-purple-bright text-xl />
     <span class="text-sm font-semibold">We could really use some automation...</span>
   </div>
 </div>
@@ -240,36 +285,51 @@ const showNewCheckout = client.getBooleanValue(
 <div class="space-y-3 mt-4">
 
 <div v-click="1">
-<div border="2 solid red-800/50" rounded-lg overflow-hidden bg="red-900/20" backdrop-blur-sm>
-  <div flex items-center bg="red-800/40" backdrop-blur px-4 py-3 gap-2>
-    <div i-carbon:unknown text-red-300 text-lg />
-    <span font-bold text-base>Does it exist?</span>
+<div class="card-purple px-4 py-3">
+  <div flex items-center gap-3 mb-2>
+    <div 
+      class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+      style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+    >
+      <div class="i-carbon:unknown text-purple-bright" />
+    </div>
+    <span class="font-bold text-purple-light">Does it exist?</span>
   </div>
-  <div px-4 py-3 text-sm opacity-90>
+  <div class="text-sm opacity-80 ml-11">
     No guarantee the flag exists in any management system
   </div>
 </div>
 </div>
 
 <div v-click="2">
-<div border="2 solid red-800/50" rounded-lg overflow-hidden bg="red-900/20" backdrop-blur-sm>
-  <div flex items-center bg="red-800/40" backdrop-blur px-4 py-3 gap-2>
-    <div i-carbon:type-pattern text-red-300 text-lg />
-    <span font-bold text-base>Correct type?</span>
+<div class="card-purple px-4 py-3">
+  <div flex items-center gap-3 mb-2>
+    <div 
+      class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+      style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+    >
+      <div class="i-carbon:type-pattern text-purple-bright" />
+    </div>
+    <span class="font-bold text-purple-light">Correct type?</span>
   </div>
-  <div px-4 py-3 text-sm opacity-90>
+  <div class="text-sm opacity-80 ml-11">
     Could be boolean, string, number, object—no way to know
   </div>
 </div>
 </div>
 
 <div v-click="3">
-<div border="2 solid red-800/50" rounded-lg overflow-hidden bg="red-900/20" backdrop-blur-sm>
-  <div flex items-center bg="red-800/40" backdrop-blur px-4 py-3 gap-2>
-    <div i-carbon:help text-red-300 text-lg />
-    <span font-bold text-base>What's the intent?</span>
+<div class="card-purple px-4 py-3">
+  <div flex items-center gap-3 mb-2>
+    <div 
+      class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+      style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+    >
+      <div class="i-carbon:help text-purple-bright" />
+    </div>
+    <span class="font-bold text-purple-light">What's the intent?</span>
   </div>
-  <div px-4 py-3 text-sm opacity-90>
+  <div class="text-sm opacity-80 ml-11">
     No context on how the flag should be used or configured
   </div>
 </div>
@@ -345,7 +405,7 @@ class: px-12 py-8
 
 # Introducing the Flag Manifest
 
-<div class="text-lg opacity-70 mb-8">A single source of truth for your flag definitions—living in your repository, alongside your code</div>
+<div class="text-lg opacity-70 mb-8">A single source of truth for your flag definitions in your repository, alongside your code</div>
 
 <div class="grid grid-cols-2 gap-8">
 
@@ -370,9 +430,9 @@ flags:
 ```
 
 <div v-click="4" mt-6>
-<div bg="green-900/30" border="2 solid green-800" rounded-lg px-4 py-3>
+<div class="card-purple glow-purple-soft px-4 py-3">
   <div flex items-center gap-2>
-    <div i-carbon:idea text-green-300 text-xl />
+    <div i-carbon:idea text-purple-bright text-xl />
     <span class="text-sm font-semibold">Version-controlled, reviewable, and validated—just like Kubernetes manifests</span>
   </div>
 </div>
@@ -386,35 +446,55 @@ flags:
 
 <div class="space-y-3 mt-4">
 
-
-<div v-click="1" border="2 solid purple-800/50" rounded-lg overflow-hidden bg="purple-900/20" backdrop-blur-sm>
-  <div flex items-center bg="purple-800/40" backdrop-blur px-4 py-3 gap-2>
-    <div i-carbon:settings text-purple-300 text-lg />
-    <span font-bold text-base>Default Values</span>
+<div v-click="1">
+<div class="card-purple px-4 py-3">
+  <div flex items-center gap-3 mb-2>
+    <div 
+      class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+      style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+    >
+      <div class="i-carbon:settings text-purple-bright" />
+    </div>
+    <span class="font-bold text-purple-light">Default Values</span>
   </div>
-  <div px-4 py-3 text-sm opacity-90>
+  <div class="text-sm opacity-80 ml-11">
     Safe fallbacks for all environments
   </div>
 </div>
+</div>
 
-<div v-click="2" border="2 solid purple-800/50" rounded-lg overflow-hidden bg="purple-900/20" backdrop-blur-sm>
-  <div flex items-center bg="purple-800/40" backdrop-blur px-4 py-3 gap-2>
-    <div i-carbon:document text-purple-300 text-lg />
-    <span font-bold text-base>Self-Documenting</span>
+<div v-click="2">
+<div class="card-purple px-4 py-3">
+  <div flex items-center gap-3 mb-2>
+    <div 
+      class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+      style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+    >
+      <div class="i-carbon:document text-purple-bright" />
+    </div>
+    <span class="font-bold text-purple-light">Self-Documenting</span>
   </div>
-  <div px-4 py-3 text-sm opacity-90>
+  <div class="text-sm opacity-80 ml-11">
     Human-readable descriptions
   </div>
 </div>
+</div>
 
-<div v-click="3" border="2 solid purple-800/50" rounded-lg overflow-hidden bg="purple-900/20" backdrop-blur-sm>
-  <div flex items-center bg="purple-800/40" backdrop-blur px-4 py-3 gap-2>
-    <div i-carbon:type-pattern text-purple-300 text-lg />
-    <span font-bold text-base>Type Safety</span>
+<div v-click="3">
+<div class="card-purple px-4 py-3">
+  <div flex items-center gap-3 mb-2>
+    <div 
+      class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+      style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+    >
+      <div class="i-carbon:type-pattern text-purple-bright" />
+    </div>
+    <span class="font-bold text-purple-light">Type Safety</span>
   </div>
-  <div px-4 py-3 text-sm opacity-90>
+  <div class="text-sm opacity-80 ml-11">
     boolean, string, number, object
   </div>
+</div>
 </div>
 
 </div>
@@ -570,12 +650,67 @@ OpenFeature provides the foundation for FFDD—vendor neutrality, cross-platform
 -->
 
 ---
-layout: section
+layout: center
+class: text-center
 ---
 
-# The FFDD Workflow
+<div class="max-w-4xl mx-auto">
 
-## Part 1: Define and Generate
+<div class="mb-8">
+  <div class="text-5xl font-bold mb-4 text-gradient-purple">The FFDD Workflow</div>
+  <div class="text-2xl opacity-70">A practical approach to managing feature flags</div>
+</div>
+
+<div v-click class="mt-16">
+<div class="card-purple glow-purple-soft px-10 py-8">
+  <div class="flex items-center justify-center gap-8">
+    <div class="flex items-center gap-3">
+      <div 
+        class="bg-gradient-purple w-12 h-12 rounded-lg flex items-center justify-center"
+        style="box-shadow: 0 2px 12px rgba(141,141,255,0.3);"
+      >
+        <div class="text-2xl font-bold text-purple-bright">1</div>
+      </div>
+      <div class="text-left">
+        <div class="font-semibold text-purple-light">Define & Generate</div>
+        <div class="text-sm opacity-70">Declare flags, generate code</div>
+      </div>
+    </div>
+    <div class="text-purple-400 text-2xl">→</div>
+    <div class="flex items-center gap-3">
+      <div 
+        class="bg-gradient-purple w-12 h-12 rounded-lg flex items-center justify-center"
+        style="box-shadow: 0 2px 12px rgba(141,141,255,0.3);"
+      >
+        <div class="text-2xl font-bold text-purple-bright">2</div>
+      </div>
+      <div class="text-left">
+        <div class="font-semibold text-purple-light">Validate & Sync</div>
+        <div class="text-sm opacity-70">CI checks, sync to provider</div>
+      </div>
+    </div>
+    <div class="text-purple-400 text-2xl">→</div>
+    <div class="flex items-center gap-3">
+      <div 
+        class="bg-gradient-purple w-12 h-12 rounded-lg flex items-center justify-center"
+        style="box-shadow: 0 2px 12px rgba(141,141,255,0.3);"
+      >
+        <div class="text-2xl font-bold text-purple-bright">3</div>
+      </div>
+      <div class="text-left">
+        <div class="font-semibold text-purple-light">Promote</div>
+        <div class="text-sm opacity-70">GitOps-driven rollout</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+<!--
+Quick overview of the three-part workflow we're about to walk through in detail
+-->
 
 ---
 layout: default
