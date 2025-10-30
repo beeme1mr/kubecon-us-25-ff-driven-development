@@ -97,19 +97,19 @@ Quick personal introductions - both deeply involved in OpenFeature community and
 
 ---
 layout: default
-class: px-10 py-8
+class: px-10 py-6
 ---
 
 # Feature Flags are Powerful...
 
-<div v-click="2" class="text-xl opacity-70 mb-8">...but they're not without their challenges</div>
+<div v-click="2" class="text-lg opacity-70 mb-6">...but they're not without their challenges</div>
 
-<div class="grid grid-cols-2 gap-8 mt-12 max-w-5xl mx-auto">
+<div class="grid grid-cols-2 gap-6 mt-8 max-w-5xl mx-auto">
 
 <div v-click="1">
-<div class="card-purple glow-purple-soft px-6 py-5">
-  <div class="text-2xl font-bold text-gradient-purple mb-4 leading-normal">The Power</div>
-  <div class="space-y-3">
+<div class="card-purple glow-purple-soft px-5 py-4">
+  <div class="text-xl font-bold text-gradient-purple mb-3 leading-normal">The Power</div>
+  <div class="space-y-2">
     <div class="flex items-start gap-3">
       <div 
         class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
@@ -163,10 +163,10 @@ class: px-10 py-8
 </div>
 
 <div v-click="3">
-<div class="card-purple glow-purple-soft px-6 py-5">
-  <div class="text-2xl font-bold text-gradient-purple mb-4 leading-normal">The Challenges</div>
+<div class="card-purple glow-purple-soft px-5 py-4">
+  <div class="text-xl font-bold text-gradient-purple mb-3 leading-normal">The Challenges</div>
 
-  <div class="space-y-3">
+  <div class="space-y-2">
     <div class="flex items-start gap-3">
       <div 
         class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
@@ -227,15 +227,15 @@ Feature flags are incredibly powerful for progressive delivery, but at scale the
 
 ---
 layout: default
-class: px-12 py-8
+class: px-10 py-6
 ---
 
 # The Developer Journey
 
 
-<DeveloperJourneyFlow :active="$clicks" class="mt-16 max-w-3xl mx-auto" />
+<DeveloperJourneyFlow :active="$clicks" class="mt-12 max-w-3xl mx-auto" />
 
-<DeveloperJourneySteps :active="$clicks" class="mt-8 max-w-3xl mx-auto" />
+<DeveloperJourneySteps :active="$clicks" class="mt-6 max-w-3xl mx-auto" />
 
 <!--
 This is the reality—multiple context switches, manual verification, and plenty of room for human error. Each step introduces friction and potential mistakes.
@@ -243,14 +243,14 @@ This is the reality—multiple context switches, manual verification, and plenty
 
 ---
 layout: default
-class: px-12 py-8
+class: px-10 py-6
 ---
 
 # The String Literal Problem
 
-<div class="text-lg opacity-70 mb-8">Manual flag management introduces runtime risk</div>
+<div class="text-base opacity-70 mb-6">Manual flag management introduces runtime risk</div>
 
-<div class="grid grid-cols-2 gap-8">
+<div class="grid grid-cols-2 gap-6">
 
 <div>
 
@@ -400,14 +400,14 @@ KubeCon audience knows declarative config well—this should feel familiar and p
 
 ---
 layout: default
-class: px-12 py-8
+class: px-10 py-6
 ---
 
 # Introducing the Flag Manifest
 
-<div class="text-lg opacity-70 mb-8">A single source of truth for your flag definitions in your repository, alongside your code</div>
+<div class="text-base opacity-70 mb-6">A single source of truth for your flag definitions in your repository, alongside your code</div>
 
-<div class="grid grid-cols-2 gap-8">
+<div class="grid grid-cols-2 gap-6">
 
 <div>
 
@@ -415,18 +415,22 @@ class: px-12 py-8
 
 <div class="mt-4" />
 
-```yaml {all|6|5|4|all}
-# flags.yaml - checked into version control
-flags:
-  new-checkout-flow:
-    type: boolean
-    description: "Enable new checkout experience"
-    defaultValue: false
-
-  payment-provider:
-    type: string
-    description: "Which payment provider to use"
-    defaultValue: stripe
+```json {all|6|5|4|all}
+// flags.json - checked into version control
+{
+  "flags": {
+    "new-checkout-flow": {
+      "type": "boolean",
+      "description": "Enable new checkout experience",
+      "defaultValue": false
+    },
+    "payment-provider": {
+      "type": "string",
+      "description": "Which payment provider to use",
+      "defaultValue": "stripe"
+    }
+  }
+}
 ```
 
 <div v-click="4" mt-6>
@@ -650,15 +654,135 @@ OpenFeature provides the foundation for FFDD—vendor neutrality, cross-platform
 -->
 
 ---
+layout: default
+class: px-10 py-6
+---
+
+# The OpenFeature CLI
+
+<div class="text-base opacity-80 mb-4">Your command-line companion for Feature Flag Driven Development</div>
+
+<div class="grid grid-cols-2 gap-6">
+
+<div>
+
+### Core Commands
+
+<div class="space-y-3 mt-4 text-sm">
+
+<div v-click="1" class="card-purple px-4 py-3">
+  <div class="flex items-center gap-2 mb-1">
+    <div class="i-carbon:document-add text-purple-bright" />
+    <code class="text-purple-light font-semibold">manifest add</code>
+  </div>
+  <div class="text-xs opacity-80">Add new flags to your manifest</div>
+</div>
+
+<div v-click="2" class="card-purple px-4 py-3">
+  <div class="flex items-center gap-2 mb-1">
+    <div class="i-carbon:code text-purple-bright" />
+    <code class="text-purple-light font-semibold">generate</code>
+  </div>
+  <div class="text-xs opacity-80">Generate type-safe flag accessors</div>
+</div>
+
+<div v-click="3" class="card-purple px-4 py-3">
+  <div class="flex items-center gap-2 mb-1">
+    <div class="i-carbon:checkmark-outline text-purple-bright" />
+    <code class="text-purple-light font-semibold">validate</code>
+  </div>
+  <div class="text-xs opacity-80">Validate manifest in CI/CD</div>
+</div>
+
+<div v-click="4" class="card-purple px-4 py-3">
+  <div class="flex items-center gap-2 mb-1">
+    <div class="i-carbon:sync-settings text-purple-bright" />
+    <code class="text-purple-light font-semibold">push / pull</code>
+  </div>
+  <div class="text-xs opacity-80">Sync flags with your provider</div>
+</div>
+
+</div>
+
+</div>
+
+<div v-click="5">
+
+### Installation
+
+```bash
+# One-line install
+curl -fsSL https://openfeature.dev/scripts/install_cli.sh | sh
+```
+
+<div class="mt-4 text-md opacity-80">
+✅ Cross-platform (Linux, macOS, Windows)<br/>
+✅ Single binary, no dependencies<br/>
+✅ Works with any OpenFeature provider
+</div>
+
+<div class="mt-6">
+<div class="card-purple glow-purple-soft px-4 py-3">
+  <div class="flex items-center gap-2">
+    <div class="i-carbon:idea text-purple-bright text-xl" />
+    <span class="text-sm font-semibold">Let's see it in action with SHOP-4287!</span>
+  </div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!--
+The CLI is the key enabler for FFDD—it automates the manual work and integrates flags into your existing workflows
+-->
+
+---
+layout: default
+---
+
+# The Starting Point
+
+<div class="text-lg opacity-80 mb-4">Every feature starts with a business requirement</div>
+
+<div v-click="1">
+<TicketCard
+  ticketNumber="SHOP-4287"
+  title="Add Free Shipping Promotion Banner"
+  description="Display 'Free Shipping on Orders $50+' banner on ToggleShop homepage to promote current offer. Banner should be toggleable without redeployment for marketing flexibility."
+  :acceptanceCriteria="[
+    'Banner displays on homepage above product grid',
+    'Shows for all users in production when enabled',
+    'Can be toggled on/off without deployment',
+    'Design matches marketing mockup'
+  ]"
+  priority="High"
+/>
+</div>
+
+<div v-click="2" class="mt-4 text-center">
+<div class="card-purple glow-purple-soft inline-flex items-center gap-2 px-4 py-2">
+  <div class="i-carbon:user-avatar text-purple-bright text-xl" />
+  <span class="text-base font-semibold text-purple-light">Developer accepts ticket → Let's implement with FFDD</span>
+</div>
+</div>
+
+<!--
+This is where every feature starts—with a business requirement. Let's follow this free shipping banner from ticket to production using the FFDD workflow.
+-->
+
+---
 layout: center
 class: text-center
+hide: true
 ---
 
 <div class="max-w-4xl mx-auto">
 
 <div class="mb-8">
   <div class="text-5xl font-bold mb-4 text-gradient-purple">The FFDD Workflow</div>
-  <div class="text-2xl opacity-70">A practical approach to managing feature flags</div>
+  <div class="text-2xl opacity-70">From ticket to production in three parts</div>
 </div>
 
 <div v-click class="mt-16">
@@ -709,144 +833,127 @@ class: text-center
 </div>
 
 <!--
-Quick overview of the three-part workflow we're about to walk through in detail
+Follow the free-shipping-banner feature from ticket to production
 -->
 
 ---
 layout: default
-class: px-12 py-8
+clicks: 1
 ---
 
-# Step 1 - Define Your Flags
+# Define Your Flag
 
-<div class="text-lg opacity-80 mt-6 mb-8">
-
-Start by defining your flags in a manifest file, checked into version control alongside your code.
-
+<div class="flex justify-center">
+  <PresentationVideo
+    src="/add-flag-to-manifest.mp4"
+    :segments="[
+      { click: 1, action: 'play', pauseAfter: 18000, showCalloutsOnPause: ['circle-manifest-change'] }
+    ]"
+    width="100%"
+    max-width="780px"
+  >
+    <VideoCallout
+      id="circle-manifest-change"
+      position="top-12 left-60"
+      arrow-to="#presentation-video@(140,130)"
+      arrow-arc="-0.1"
+      arrow-color="#8D8DFF"
+      :arrow-width="3"
+    >
+      <div class="card-purple glow-purple-soft px-4 py-3">
+        <span class="text-sm font-semibold">The new flag is in the manifest</span>
+      </div>
+    </VideoCallout>
+  </PresentationVideo>
 </div>
-
-<!-- [Placeholder: VS Code screenshot showing a flag manifest file in a repository] -->
-
-<div v-click class="mt-8 text-center text-base opacity-70">
-
-No more UI clicking—flags are code, living next to your application
-
-</div>
-
-<!--
-No more UI clicking—flags are code, living next to your application
--->
-
----
-layout: default
-class: px-12 py-8
----
-
-# Step 2 - Generate Type-Safe Code
-
-<div class="text-lg opacity-80 mt-6 mb-8">
-
-The OpenFeature CLI reads your manifest and generates type-safe flag accessor code for your language.
-
-</div>
-
-```bash
-openfeature generate --language typescript
-```
-
-<!-- [Placeholder: Terminal output showing code generation] -->
-
-<div v-click class="mt-8 text-center text-base opacity-70">
-
-No more typos, no more undefined flags—your IDE autocompletes flag keys
-
-</div>
-
-<!--
-No more typos, no more undefined flags—your IDE autocompletes flag keys
--->
-
----
-layout: center
-class: text-center
----
-
-# Pre-recorded Demo - Define & Generate
-
-<!-- [Placeholder: Screen recording (~90 seconds) showing:
-1. Get ticket assigned ✅
-2. Add flag to flags.yaml in your repo (no context switch!)
-3. Run openfeature generate --language typescript
-4. Show generated code with type-safe flag accessors
-5. Write code using autocomplete for flag keys
-6. Compile—errors if flag doesn't exist in manifest
-7. Compare side-by-side: string literals vs. generated constants
-8. Show IntelliSense/autocomplete discovering available flags
-9. Demonstrate rename refactoring working across the codebase] -->
-
-<!--
-The developer never left their IDE. No context switching, no typos possible, no manual verification needed. The compiler is now your safety net.
--->
 
 ---
 layout: default
-class: px-12 py-8
+clicks: 2
 ---
 
-# Type Safety and Developer Experience
+# Generate Type-Safe Code
 
-<div class="grid grid-cols-2 gap-8 mt-12">
-
-<div>
-
-## Before
-
-```typescript
-// String literals - prone to typos
-const enableNewCheckoutFlow = client.getBooleanValue(
-  'new-checkout-flow',
-  false
-);
-```
-
-<div class="text-sm opacity-70 mt-4">
-
-❌ No autocomplete
-
-❌ Typos only caught at runtime
-
-❌ No refactoring support
-
+<div class="flex justify-center">
+  <PresentationVideo
+    src="/generate-type-safe-bindings.mp4"
+    :segments="[
+      { click: 1, action: 'play', pauseAfter: 3800 },
+      { click: 2, action: 'resume', pauseAfter: 4000, showCalloutsOnPause: ['circle-manifest-change'] },
+    ]"
+    width="100%"
+    max-width="780px"
+  >
+   <VideoCallout
+      id="circle-manifest-change"
+      position="top-44 left-86"
+      arrow-to="#presentation-video@(220,260)"
+      arrow-arc="-0.1"
+      arrow-color="#8D8DFF"
+      :arrow-width="3"
+    >
+      <div class="card-purple glow-purple-soft px-4 py-3">
+        <span class="text-sm font-semibold">Here's the generated React hook</span>
+      </div>
+    </VideoCallout>
+  </PresentationVideo>
 </div>
 
+---
+layout: default
+clicks: 3
+---
+
+# Let's use it in our codebase!
+
+<div class="flex justify-center">
+  <PresentationVideo
+    src="/use-generated-code.mp4"
+    :segments="[
+      { click: 1, action: 'play', pauseAfter: 7200 },
+      { click: 2, action: 'resume', pauseAfter: 5200 },
+      { click: 3, action: 'resume' }
+    ]"
+    width="100%"
+    max-width="780px"
+  />
 </div>
 
-<div>
+---
+layout: default
+clicks: 2
+---
 
-## After
+# Time to test the banner
 
-```typescript
-// Type-safe accessors
-const enableNewCheckoutFlow = client.newCheckoutFlow();
-```
-
-<div class="text-sm opacity-70 mt-4">
-
-✅ IDE autocomplete
-
-✅ Compile-time errors
-
-✅ Safe refactoring
-
+<div class="flex justify-center">
+  <PresentationVideo
+    src="/testing-new-banner.mp4"
+    :segments="[
+      { click: 1, action: 'play', pauseAfter: 7200, showCalloutsOnPause: ['enable-flag'] },
+      { click: 2, action: 'resume', pauseAfter: 1400, showCalloutsOnPause: ['ship-it'] },
+    ]"
+    width="100%"
+    max-width="780px"
+  >
+   <VideoCallout
+      id="enable-flag"
+      position="top-20 left-130"
+    >
+      <div class="card-purple glow-purple-soft px-4 py-3">
+        <span class="text-sm font-semibold">Okay, let's <span class="font-italic">toggle</span> the flag</span>
+      </div>
+    </VideoCallout>
+       <VideoCallout
+      id="ship-it"
+      position="top-20 left-130"
+    >
+      <div class="card-purple glow-purple-soft px-4 py-3">
+        <span class="text-sm font-semibold">Looks good... ship it!</span>
+      </div>
+    </VideoCallout>
+  </PresentationVideo>
 </div>
-
-</div>
-
-</div>
-
-<!--
-This fundamentally changes how developers interact with flags
--->
 
 ---
 layout: section
