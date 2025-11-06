@@ -1430,6 +1430,212 @@ FFDD isn't a new tool—it's a new way of thinking about flags in your workflow
 -->
 
 ---
+layout: default
+class: px-8 py-4
+---
+
+# Real World: TestifySec's Challenge
+
+<div class="flex items-center justify-center gap-6 mb-3">
+  <img src="/testifysec-logo.png" alt="TestifySec" class="h-8" />
+  <div class="text-2xl text-purple-400">+</div>
+  <img src="/open-feature-logo.svg" alt="OpenFeature" class="h-8" />
+</div>
+
+<div class="text-sm opacity-80 mb-3">
+After implementing release-on-demand at our previous company, we brought feature flags to our cybersecurity platform at TestifySec.
+</div>
+
+<div class="grid grid-cols-2 gap-3">
+
+<div v-click="1" class="card-purple glow-purple-soft px-3 py-2">
+  <div class="flex items-start gap-2">
+    <div class="i-carbon:warning-alt text-lg text-orange-300 flex-shrink-0" />
+    <div>
+      <div class="font-semibold text-sm mb-1">The Challenge</div>
+      <div class="text-xs opacity-90">
+        Dual deployment model:
+        <span class="text-xs">• Public SaaS • Air-gapped on-prem</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div v-click="2" class="card-purple glow-purple-soft px-3 py-2">
+  <div class="flex items-start gap-2">
+    <div class="i-carbon:help text-lg text-blue-400 flex-shrink-0" />
+    <div>
+      <div class="font-semibold text-sm mb-1">The Question</div>
+      <div class="text-xs opacity-90">
+        Ship entire flag provider on-prem and over air gaps?
+      </div>
+    </div>
+  </div>
+</div>
+
+<div v-click="3" class="card-purple glow-purple-soft px-3 py-2">
+  <div class="flex items-start gap-2">
+    <div class="i-carbon:idea text-lg text-yellow-400 flex-shrink-0" />
+    <div>
+      <div class="font-semibold text-sm mb-1">Initial Approach</div>
+      <div class="text-xs opacity-90">
+        Flat file config - simple but needs reliability work
+      </div>
+    </div>
+  </div>
+</div>
+
+<div v-click="4" class="card-purple glow-purple-soft px-3 py-2">
+  <div class="flex items-start gap-2">
+    <div class="i-carbon:checkmark-filled text-lg text-green-400 flex-shrink-0" />
+    <div>
+      <div class="font-semibold text-sm mb-1">The Solution</div>
+      <div class="text-xs opacity-90">
+        OpenFeature CLI - declarative flags with safe defaults!
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div v-click="5" class="mt-4">
+<div class="text-sm font-semibold text-center mb-2 text-purple-bright">
+
+✨ Result: One Approach, Two Deployment Models
+
+</div>
+
+<div class="grid grid-cols-2 gap-3">
+
+<div class="card-purple glow-purple-soft px-3 py-2">
+<div class="flex items-center gap-2 mb-1">
+<div class="i-carbon:cloud text-base text-purple-400" />
+<span class="font-semibold text-xs">Public SaaS</span>
+</div>
+<div class="text-xs opacity-80">
+Dynamic provider with full management
+</div>
+</div>
+
+<div class="card-purple glow-purple-soft px-3 py-2">
+<div class="flex items-center gap-2 mb-1">
+<div class="i-carbon:enterprise text-base text-blue-400" />
+<span class="font-semibold text-xs">Air-gapped On-prem</span>
+</div>
+<div class="text-xs opacity-80">
+Generated CLI client with defaults
+</div>
+</div>
+
+</div>
+
+<div class="text-xs opacity-70 mt-2 text-center">
+Elegant solution with zero compromises
+</div>
+</div>
+
+<!--
+This real-world example shows how FFDD and OpenFeature CLI solve complex deployment challenges that many enterprise teams face. The declarative approach scales from simple to complex scenarios.
+-->
+
+---
+layout: default
+class: px-8 py-3
+---
+
+# Real World: Static Site Generation at Corewell Health
+
+<div class="flex items-center justify-center gap-4 mb-2">
+<div class="i-carbon:hospital text-3xl text-blue-400" />
+<div class="text-xl text-purple-400">+</div>
+<img src="/open-feature-logo.svg" alt="OpenFeature" class="h-6" />
+</div>
+
+<div class="text-xs opacity-80 mb-2">
+
+Healthcare SSG: offline defaults + dynamic runtime flags
+
+</div>
+
+<div class="grid grid-cols-2 gap-2">
+
+<div v-click="1" class="card-purple glow-purple-soft px-2 py-1.5">
+<div class="flex items-start gap-2">
+<div class="i-carbon:document-tasks text-base text-blue-400 flex-shrink-0" />
+<div>
+<div class="font-semibold text-xs mb-0.5">The Challenge</div>
+<div class="text-xs opacity-90">
+
+Atomic deploys with safe defaults + dynamic queries
+
+</div>
+</div>
+</div>
+</div>
+
+<div v-click="2" class="card-purple glow-purple-soft px-2 py-1.5">
+<div class="flex items-start gap-2">
+<div class="i-carbon:tools text-base text-yellow-400 flex-shrink-0" />
+<div>
+<div class="font-semibold text-xs mb-0.5">Our Approach</div>
+<div class="text-xs opacity-90">
+
+Custom system for atomic shipping + runtime fallback
+
+</div>
+</div>
+</div>
+</div>
+
+<div v-click="3" class="card-purple glow-purple-soft px-2 py-1.5">
+<div class="flex items-start gap-2">
+<div class="i-carbon:warning-hex text-base text-red-400 flex-shrink-0" />
+<div>
+<div class="font-semibold text-xs mb-0.5">The Pain</div>
+<div class="text-xs opacity-90">
+
+Wrong keys → build errors → deployment delays
+
+</div>
+</div>
+</div>
+</div>
+
+<div v-click="4" class="card-purple glow-purple-soft px-2 py-1.5">
+<div class="flex items-start gap-2">
+<div class="i-carbon:checkmark-filled text-base text-green-400 flex-shrink-0" />
+<div>
+<div class="font-semibold text-xs mb-0.5">The Better Way</div>
+<div class="text-xs opacity-90">
+
+OpenFeature CLI: type safety + compile-time checks
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<div v-click="5" class="mt-2 text-center">
+<div class="text-xs text-purple-bright font-semibold">
+
+✨ Type safety prevents build errors • Faster deploys • Compiler catches typos
+
+</div>
+<div class="text-xs opacity-60 mt-1">
+
+Read more: kriscodeman.com/blog/ssg-with-feature-flags
+
+</div>
+</div>
+
+<!--
+Static site generation with feature flags is complex - you need offline defaults and runtime queries. OpenFeature CLI elegantly handles both with type safety.
+-->
+
+---
 layout: section
 ---
 
