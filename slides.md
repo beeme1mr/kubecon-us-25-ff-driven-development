@@ -1540,6 +1540,102 @@ This real-world example shows how FFDD and OpenFeature CLI solve complex deploym
 -->
 
 ---
+layout: default
+class: px-8 py-3
+---
+
+# Real World: Static Site Generation at Corewell Health
+
+<div class="flex items-center justify-center gap-4 mb-2">
+<div class="i-carbon:hospital text-3xl text-blue-400" />
+<div class="text-xl text-purple-400">+</div>
+<img src="/open-feature-logo.svg" alt="OpenFeature" class="h-6" />
+</div>
+
+<div class="text-xs opacity-80 mb-2">
+
+Healthcare SSG: offline defaults + dynamic runtime flags
+
+</div>
+
+<div class="grid grid-cols-2 gap-2">
+
+<div v-click="1" class="card-purple glow-purple-soft px-2 py-1.5">
+<div class="flex items-start gap-2">
+<div class="i-carbon:document-tasks text-base text-blue-400 flex-shrink-0" />
+<div>
+<div class="font-semibold text-xs mb-0.5">The Challenge</div>
+<div class="text-xs opacity-90">
+
+Atomic deploys with safe defaults + dynamic queries
+
+</div>
+</div>
+</div>
+</div>
+
+<div v-click="2" class="card-purple glow-purple-soft px-2 py-1.5">
+<div class="flex items-start gap-2">
+<div class="i-carbon:tools text-base text-yellow-400 flex-shrink-0" />
+<div>
+<div class="font-semibold text-xs mb-0.5">Our Approach</div>
+<div class="text-xs opacity-90">
+
+Custom system for atomic shipping + runtime fallback
+
+</div>
+</div>
+</div>
+</div>
+
+<div v-click="3" class="card-purple glow-purple-soft px-2 py-1.5">
+<div class="flex items-start gap-2">
+<div class="i-carbon:warning-hex text-base text-red-400 flex-shrink-0" />
+<div>
+<div class="font-semibold text-xs mb-0.5">The Pain</div>
+<div class="text-xs opacity-90">
+
+Wrong keys → build errors → deployment delays
+
+</div>
+</div>
+</div>
+</div>
+
+<div v-click="4" class="card-purple glow-purple-soft px-2 py-1.5">
+<div class="flex items-start gap-2">
+<div class="i-carbon:checkmark-filled text-base text-green-400 flex-shrink-0" />
+<div>
+<div class="font-semibold text-xs mb-0.5">The Better Way</div>
+<div class="text-xs opacity-90">
+
+OpenFeature CLI: type safety + compile-time checks
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<div v-click="5" class="mt-2 text-center">
+<div class="text-xs text-purple-bright font-semibold">
+
+✨ Type safety prevents build errors • Faster deploys • Compiler catches typos
+
+</div>
+<div class="text-xs opacity-60 mt-1">
+
+Read more: kriscodeman.com/blog/ssg-with-feature-flags
+
+</div>
+</div>
+
+<!--
+Static site generation with feature flags is complex - you need offline defaults and runtime queries. OpenFeature CLI elegantly handles both with type safety.
+-->
+
+---
 layout: section
 ---
 
