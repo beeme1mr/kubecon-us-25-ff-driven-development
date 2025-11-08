@@ -956,43 +956,71 @@ clicks: 2
 </div>
 
 ---
-layout: section
+layout: default
+clicks: 2
 ---
 
-# The FFDD Workflow
+# Open a Pull Request
 
-## Part 2: Validate and Sync
+<div class="flex justify-center">
+  <PresentationVideo
+    src="/open-pr.mp4"
+    :segments="[
+      { click: 1, action: 'play', pauseAfter: 11500 },
+      { click: 2, action: 'resume', pauseAfter: 5500, showCalloutsOnPause: ['new-flag'] },
+    ]"
+    width="100%"
+    max-width="780px"
+  >
+   <VideoCallout
+      id="new-flag"
+      position="top-50 left-120"
+      arrow-to="#presentation-video@(280,370)"
+      from-anchor="bottom"
+      arrow-arc="0.1"
+      arrow-color="#8D8DFF"
+      :arrow-width="3"
+    >
+      <div class="card-purple glow-purple-soft px-4 py-3 text-center w-64">
+        The free-shipping-banner will be created for us!
+      </div>
+    </VideoCallout>
+  </PresentationVideo>
+</div>
 
 ---
 layout: default
-class: px-12 py-8
+clicks: 3
 ---
 
-# Step 3 - Validate in CI
+# Delegate Control
 
-<div class="text-lg opacity-80 mt-6 mb-8">
-
-In your CI pipeline, validate that your flag manifest is correctly formatted and consistent with your codebase.
-
+<div class="flex justify-center">
+  <PresentationVideo
+    src="/delegate-control.mp4"
+    :segments="[
+      { click: 1, action: 'play', pauseAfter: 1300, showCalloutsOnPause: ['recently-created'] },
+      { click: 2, action: 'resume', pauseAfter: 1600 },
+      { click: 3, action: 'resume' },
+    ]"
+    width="100%"
+    max-width="780px"
+  >
+   <VideoCallout
+      id="recently-created"
+      position="top-50 left-110"
+      arrow-to="#presentation-video@(680,170)"
+      from-anchor="top"
+      arrow-arc="-0.1"
+      arrow-color="#8D8DFF"
+      :arrow-width="3"
+    >
+      <div class="card-purple glow-purple-soft px-4 py-3 text-center w-64">
+        We're now in sync with our provider!
+      </div>
+    </VideoCallout>
+  </PresentationVideo>
 </div>
-
-```yaml
-# .github/workflows/validate-flags.yml
-- name: Validate Flag Manifest
-  run: openfeature validate
-```
-
-<!-- [Placeholder: GitHub Actions workflow showing validation step] -->
-
-<div v-click class="mt-8 text-center text-base opacity-70">
-
-Catch configuration errors before they reach production
-
-</div>
-
-<!--
-Catch configuration errors before they reach production
--->
 
 ---
 layout: default

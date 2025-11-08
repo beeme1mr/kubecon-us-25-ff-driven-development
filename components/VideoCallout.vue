@@ -10,6 +10,7 @@
     - position: string (optional) - CSS positioning classes (e.g., "top-40 left-80")
     - arrowTo: string (optional) - FancyArrow target selector
     - arrowArc: number (optional) - Arrow arc curvature (default: 0)
+    - fromAnchor: AnchorPosition (optional) - Arrow starting anchor position (default: left)
     - arrowColor: string (optional) - Arrow color (default: current theme color)
     - arrowWidth: number (optional) - Arrow stroke width (default: 3)
 
@@ -42,13 +43,17 @@
     - Combine multiple classes: "top-40 left-80"
 -->
 <script setup lang="ts">
+import { color } from 'chart.js/helpers';
 import { inject, computed, Ref } from 'vue'
+
+type AnchorPosition = 'topleft' | 'top' | 'topright' | 'left' | 'right' | 'center' | 'bottomleft' | 'bottom' | 'bottomright';
 
 interface Props {
   id: string;
   position?: string;
   arrowTo?: string;
   arrowArc?: number;
+  fromAnchor?: AnchorPosition;
   arrowColor?: string;
   arrowWidth?: number;
 }
@@ -71,7 +76,7 @@ const isVisible = computed(() => {
 const calloutDataId = computed(() => `callout-${props.id}`)
 
 // Build arrow "from" selector
-const arrowFrom = computed(() => `[data-id=${calloutDataId.value}]@left`)
+const arrowFrom = computed(() => `[data-id=${calloutDataId.value}]@${props.fromAnchor || 'left'}`)
 
 // Compute arrow options
 const arrowOptions = computed(() => ({
@@ -83,22 +88,12 @@ const arrowOptions = computed(() => ({
 <template>
   <div v-if="isVisible" class="video-callout-wrapper">
     <!-- Callout content -->
-    <div
-      :data-id="calloutDataId"
-      class="absolute"
-      :class="position"
-    >
+    <div :data-id="calloutDataId" class="absolute" :class="position">
       <slot />
     </div>
 
     <!-- Optional FancyArrow -->
-    <FancyArrow
-      v-if="arrowTo"
-      :from="arrowFrom"
-      :to="arrowTo"
-      :arc="arrowArc"
-      :options="arrowOptions"
-    />
+    <FancyArrow v-if="arrowTo" :from="arrowFrom" :to="arrowTo" :arc="arrowArc" :options="arrowOptions" />
   </div>
 </template>
 
