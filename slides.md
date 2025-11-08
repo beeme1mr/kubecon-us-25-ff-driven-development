@@ -415,7 +415,7 @@ class: px-10 py-6
 
 <div class="mt-4" />
 
-```json {all|6|5|4|all}
+```json {all|7|6|5|all}
 // flags.json - checked into version control
 {
   "flags": {
@@ -432,15 +432,6 @@ class: px-10 py-6
   }
 }
 ```
-
-<div v-click="4" mt-6>
-<div class="card-purple glow-purple-soft px-4 py-3">
-  <div flex items-center gap-2>
-    <div i-carbon:idea text-purple-bright text-xl />
-    <span class="text-sm font-semibold">Version-controlled, reviewable, and validated—just like Kubernetes manifests</span>
-  </div>
-</div>
-</div>
 
 </div>
 
@@ -507,6 +498,15 @@ class: px-10 py-6
 
 </div>
 
+<div v-click="4" mt-6 max-w-2xl mx-auto>
+  <div class="card-purple glow-purple-soft px-4 py-3">
+    <div flex items-center gap-2>
+      <div i-carbon:idea text-purple-bright text-xl />
+      <span class="text-sm font-semibold">Version-controlled, reviewable, and validated... just like a Kubernetes manifest</span>
+    </div>
+  </div>
+</div>
+
 <!--
 Like a Kubernetes manifest, this is version-controlled, reviewable, and can be validated. No more hunting through UIs—everything is in Git.
 -->
@@ -567,7 +567,7 @@ Treat feature flags as first-class citizens in your SDLC
   >
     <div class="text-2xl font-bold text-purple-bright">4</div>
   </div>
-  <div class="text-lg text-purple-light">Syncing flags to management systems via GitOps</div>
+  <div class="text-lg text-purple-light">Syncing flags to management systems</div>
 </div>
 </div>
 
@@ -1023,387 +1023,122 @@ clicks: 3
 </div>
 
 ---
-layout: default
-class: px-10 py-8
----
-
-# What Gets Validated?
-
-<div class="text-base opacity-80 mb-6">
-
-CI automatically validates your flag manifest and catches problems before merge:
-
-</div>
-
-<div class="grid grid-cols-2 gap-6 text-sm">
-
-<div v-click="1">
-<div bg="green-900/30" border="2 solid green-800" rounded-lg px-4 py-3>
-  <div flex items-center gap-2 mb-2>
-    <div i-carbon:checkmark text-green-300 text-xl />
-    <span font-semibold>Schema Validation</span>
-  </div>
-  <ul class="space-y-1 text-xs opacity-90">
-    <li>• Proper YAML/JSON structure</li>
-    <li>• Required fields present</li>
-    <li>• Valid type declarations</li>
-  </ul>
-</div>
-</div>
-
-<div v-click="2">
-<div bg="green-900/30" border="2 solid green-800" rounded-lg px-4 py-3>
-  <div flex items-center gap-2 mb-2>
-    <div i-carbon:checkmark text-green-300 text-xl />
-    <span font-semibold>Type Safety</span>
-  </div>
-  <ul class="space-y-1 text-xs opacity-90">
-    <li>• Variant values match declared type</li>
-    <li>• Default variant exists in variants list</li>
-    <li>• No type mismatches between environments</li>
-  </ul>
-</div>
-</div>
-
-<div v-click="3">
-<div bg="green-900/30" border="2 solid green-800" rounded-lg px-4 py-3>
-  <div flex items-center gap-2 mb-2>
-    <div i-carbon:checkmark text-green-300 text-xl />
-    <span font-semibold>Code Consistency</span>
-  </div>
-  <ul class="space-y-1 text-xs opacity-90">
-    <li>• All flags in code exist in manifest</li>
-    <li>• All flags in manifest are used</li>
-    <li>• Flag types in code match manifest</li>
-  </ul>
-</div>
-</div>
-
-<div v-click="4">
-<div bg="green-900/30" border="2 solid green-800" rounded-lg px-4 py-3>
-  <div flex items-center gap-2 mb-2>
-    <div i-carbon:checkmark text-green-300 text-xl />
-    <span font-semibold>Environment Drift Detection</span>
-  </div>
-  <ul class="space-y-1 text-xs opacity-90">
-    <li>• Compare dev vs. staging vs. prod</li>
-    <li>• Flag missing in target environment? CI fails</li>
-    <li>• Flag definition mismatch? CI fails</li>
-  </ul>
-</div>
-</div>
-
-</div>
-
-<!-- [Placeholder: GitHub Actions workflow output showing validation results] -->
-
-<!--
-Remember the PR review problem from earlier? Now the CI bot is your reviewer—it validates everything automatically. Reviewers can focus on logic, not flag existence.
--->
-
----
-layout: default
-class: px-10 py-8
----
-
-# Step 4 - Sync to Flag Management System
-
-<div class="text-base opacity-80 mb-6">
-
-Once validated, sync your manifest to your feature flag management provider to ensure flags exist and match expected types.
-
-</div>
-
-<div class="grid grid-cols-2 gap-8 text-sm">
-
-<div>
-
-### What Gets Synced
-
-<div v-click="1" class="space-y-2 mt-3">
-
-- Flag keys and types
-- Default values
-- Descriptions and metadata
-
-</div>
-
-</div>
-
-<div>
-
-### What Stays in the Provider
-
-<div v-click="2" class="space-y-2 mt-3">
-
-- Targeting rules and user segmentation
-- Rollout percentages and schedules
-- A/B test configurations
-- Runtime flag state (on/off toggles)
-
-</div>
-
-</div>
-
-</div>
-
-<div v-click="3" mt-8>
-<div bg="blue-900/30" border="2 solid blue-800" rounded-lg px-5 py-4>
-  <div flex items-center gap-2 mb-3>
-    <div i-carbon:idea text-blue-300 text-xl />
-    <span font-semibold>The Relationship:</span>
-  </div>
-  <ul class="space-y-2 text-sm opacity-90">
-    <li><strong>Manifest</strong> = Desired state & code expectations</li>
-    <li><strong>Provider</strong> = Source of truth for runtime configuration</li>
-    <li>Sync ensures they're aligned</li>
-  </ul>
-</div>
-</div>
-
-<!-- [Placeholder: Diagram showing Git → CI → Flag Management System flow] -->
-
-<!--
-This is a key distinction - the manifest declares what flags your code expects and their types. But the provider remains the source of truth for targeting rules and runtime state. Think of it like Kubernetes: your manifest declares desired state, but the cluster is the source of truth for actual runtime status.
--->
-
----
 layout: center
-class: text-center
+class: text-center px-16
 ---
 
-# Pre-recorded Demo - Validate & Sync
+# From Ticket to Production
 
-<!-- [Placeholder: Screen recording (~90 seconds) showing:
-1. GitHub Actions workflow running validation
-2. Introduce a deliberate error (mismatched type)
-3. Show CI failure with clear error message
-4. Fix the error
-5. Show CI pass
-6. Show flags syncing to a flag management UI] -->
+<div class="grid grid-cols-3 gap-6 text-sm mt-12">
+
+<div v-click="1" class="card-purple glow-purple-soft p-5">
+  <div class="flex items-center gap-3 mb-3">
+    <div i-carbon:application-web text-2xl text-purple-400 />
+    <div class="font-semibold text-base">1. Define & Generate</div>
+  </div>
+  <div class="text-xs opacity-90">
+    Declare flags in manifest → Generate type-safe code
+  </div>
+</div>
+
+<div v-click="2" class="card-purple glow-purple-soft p-5">
+  <div class="flex items-center gap-3 mb-3">
+    <div i-carbon:code text-2xl text-green-400 />
+    <div class="font-semibold text-base">2. Implement</div>
+  </div>
+  <div class="text-xs opacity-90">
+    Use generated code → Test locally
+  </div>
+</div>
+
+<div v-click="3" class="card-purple glow-purple-soft p-5">
+  <div class="flex items-center gap-3 mb-3">
+    <div i-carbon:cloud-upload text-2xl text-blue-400 />
+    <div class="font-semibold text-base">3. Validate & Sync</div>
+  </div>
+  <div class="text-xs opacity-90">
+    CI validates → Syncs to provider (delegates control)
+  </div>
+</div>
+
+</div>
 
 <!--
-Emphasize the safety net—errors are caught before production
--->
-
----
-layout: section
----
-
-# The FFDD Workflow
-
-## Part 3: Promote Across Environments
-
----
-layout: default
-class: px-10 py-8
----
-
-# Step 5 - Environment-Specific Configuration
-
-<div class="grid grid-cols-2 gap-6 text-sm">
-
-<div>
-
-### What the Manifest Provides
-
-<div v-click="1" class="space-y-2 mt-3">
-
-- Flag keys, types, and descriptions (same across all environments)
-- Default values (baseline configuration)
-- Code expectations (what your application needs)
-
-</div>
-
-</div>
-
-<div>
-
-### What the Provider Manages Per Environment
-
-<div v-click="2" class="space-y-2 mt-3">
-
-- **Dev**: Flags enabled for all developers
-- **Staging**: Targeting specific test users
-- **Prod**: Gradual rollout (5% → 25% → 100%)
-
-</div>
-
-</div>
-
-</div>
-
-<div class="grid grid-cols-2 gap-6 mt-8">
-
-<div v-click="3">
-
-```yaml
-# Manifest (same everywhere)
-premium-checkout:
-  type: boolean
-  defaultValue: false
-```
-
-</div>
-
-<div v-click="4" class="text-sm space-y-2">
-
-**Provider Configuration:**
-
-- Dev: 100% enabled
-- Staging: 50% rollout to beta testers
-- Prod: 5% rollout, ramping up based on metrics
-
-</div>
-
-</div>
-
-<!-- [Placeholder: Diagram showing single manifest feeding into three environments] -->
-
-<!--
-The manifest is consistent across environments - it declares what flags exist and their structure. But the provider handles the operational differences: dev might have everything enabled, staging has targeted testing, and prod has careful gradual rollouts.
+We've just walked through the complete FFDD workflow with the free-shipping-banner feature: defining it in the manifest, generating type-safe code, implementing and testing it locally, then opening a PR where CI validated everything and synced to our provider.
 -->
 
 ---
 layout: default
-class: px-10 py-8
+class: px-10 py-6
 ---
 
-# Safe Rollouts with Provider Control
+# Before & After
 
-<div class="grid grid-cols-2 gap-8 text-sm">
+<div class="text-sm opacity-80 mb-4">
 
-<div>
-
-### Progressive Rollouts
-
-<div v-click="1" class="space-y-2 mt-3">
-
-- Start at 1% in production
-- Monitor metrics (error rates, latency, conversions)
-- Gradually increase based on confidence
-- Instant rollback if issues detected
+Let's compare the developer workflow:
 
 </div>
 
-### Environment Isolation
+<div class="mx-auto" style="width: 85%;">
+<div class="card-purple glow-purple-soft p-4">
 
-<div v-click="2" class="space-y-2 mt-3">
-
-- **Dev**: Test freely without affecting users
-- **Staging**: Validate with realistic data
-- **Prod**: Careful, monitored rollouts
-
-</div>
-
-</div>
-
-<div>
-
-### Benefits
-
-<div v-click="3" class="space-y-3 mt-3">
-
-- ✅ Same code deployed everywhere (no environment-specific flag keys)
-- ✅ Provider handles targeting, rollouts, and toggling
-- ✅ Manifest ensures flags exist and match expected types
-- ✅ No code changes needed to adjust rollout percentages
-
-</div>
-
-</div>
-
-</div>
-
-<!-- [Placeholder: Three-tier diagram showing dev (100%), staging (targeted), prod (progressive timeline)] -->
-
-<!--
-This is the power of separating concerns. Your manifest ensures type safety and prevents drift. Your provider gives you operational flexibility to roll out features safely, all without touching code.
--->
-
----
-layout: center
-class: text-center
----
-
-# Pre-recorded Demo - Promote
-
-<!-- [Placeholder: Screen recording (~60 seconds) showing:
-1. Show a flag manifest in a dev branch
-2. Create a PR to promote to production branch
-3. Show CI validating the production manifest
-4. Merge PR
-5. Show flags updating in production flag management system] -->
-
-<!--
-This is GitOps in action—the familiar workflow applied to feature flags
--->
-
----
-layout: section
----
-
-# Benefits and Real-World Impact
-
----
-layout: default
-class: px-8 py-8
----
-
-# Before FFDD vs. After FFDD
-
-<div class="text-base opacity-80 mb-4">
-
-Let's revisit that developer workflow from the beginning:
+<table class="w-full text-xs">
+<thead>
+  <tr class="border-b-2 border-purple-500">
+    <th class="text-left pb-3 pr-4 font-bold text-lg">Step</th>
+    <th class="text-left pb-3 px-4 font-bold text-lg">
+      <div class="flex items-center gap-2">
+        <span>Before FFDD</span>
+      </div>
+    </th>
+    <th class="text-left pb-3 pl-4 font-bold text-lg">
+      <div class="flex items-center gap-2">
+        <span>After FFDD</span>
+      </div>
+    </th>
+  </tr>
+</thead>
+<tbody class="text-xs">
+  <tr class="border-b border-purple-800/30">
+    <td class="py-2.5 pr-4 font-semibold">Get ticket</td>
+    <td class="py-2.5 px-4">Same</td>
+    <td class="py-2.5 pl-4">Same</td>
+  </tr>
+  <tr class="border-b border-purple-800/30">
+    <td class="py-2.5 pr-4 font-semibold">Create flag</td>
+    <td class="py-2.5 px-4">Open flag UI <span class="text-red-400">(context switch)</span></td>
+    <td class="py-2.5 pl-4"><code class="text-purple-300">openfeature manifest add</code> in CLI</td>
+  </tr>
+  <tr class="border-b border-purple-800/30">
+    <td class="py-2.5 pr-4 font-semibold">Add to code</td>
+    <td class="py-2.5 px-4">Type flag key manually <span class="text-red-400">(typo risk)</span></td>
+    <td class="py-2.5 pl-4"><code class="text-purple-300">openfeature generate</code> → type-safe</td>
+  </tr>
+  <tr class="border-b border-purple-800/30">
+    <td class="py-2.5 pr-4 font-semibold">Open PR</td>
+    <td class="py-2.5 px-4">Same</td>
+    <td class="py-2.5 pl-4">Same</td>
+  </tr>
+  <tr class="border-b border-purple-800/30">
+    <td class="py-2.5 pr-4 font-semibold">Code review</td>
+    <td class="py-2.5 px-4">Reviewer manually checks flag UI</td>
+    <td class="py-2.5 pl-4">CI validates automatically</td>
+  </tr>
+  <tr class="border-b border-purple-800/30">
+    <td class="py-2.5 pr-4 font-semibold">Merge</td>
+    <td class="py-2.5 px-4">Hope flag exists in prod 🤞</td>
+    <td class="py-2.5 pl-4">CI checks prod environment</td>
+  </tr>
+  <tr>
+    <td class="py-2.5 pr-4 font-semibold">Deploy</td>
+    <td class="py-2.5 px-4">Runtime errors if flag missing</td>
+    <td class="py-2.5 pl-4">Compile-time errors caught early</td>
+  </tr>
+</tbody>
+</table>
 
 </div>
-
-<div class="text-xs">
-
-| Step            | Before FFDD                                                          | After FFDD                         |
-| --------------- | -------------------------------------------------------------------- | ---------------------------------- |
-| **Get ticket**  | Same                                                                 | Same                               |
-| **Create flag** | Open flag UI <span class="text-red-400">(context switch)</span>      | `openfeature manifest add` in IDE  |
-| **Add to code** | Type flag key manually <span class="text-red-400">(typo risk)</span> | `openfeature generate` → type-safe |
-| **Open PR**     | Same                                                                 | Same                               |
-| **Code review** | Reviewer manually checks flag UI                                     | CI validates automatically         |
-| **Merge**       | Hope flag exists in prod 🤞                                           | CI checks prod environment         |
-| **Deploy**      | Runtime errors if flag missing                                       | Compile-time errors caught early   |
-
-</div>
-
-<div v-click class="mt-8 grid grid-cols-2 gap-6 text-sm">
-
-<div border="2 solid red-800/50" rounded-lg>
-  <div bg="red-800/30" px-4 py-2 flex items-center gap-2>
-    <div i-carbon:warning text-red-300 />
-    <span font-bold>Developer Impact - Before</span>
-  </div>
-  <div px-4 py-3>
-    <ul class="space-y-2">
-      <li>⏱️ Context switches: <strong>3+</strong></li>
-      <li>🐛 Typo risk: <strong class="text-red-400">High</strong></li>
-      <li>👀 Manual verification: <strong>Required</strong></li>
-      <li>🚀 Time to add flag: <strong>~10 minutes</strong></li>
-    </ul>
-  </div>
-</div>
-
-<div border="2 solid green-800/50" rounded-lg>
-  <div bg="green-800/30" px-4 py-2 flex items-center gap-2>
-    <div i-carbon:checkmark text-green-300 />
-    <span font-bold>Developer Impact - After</span>
-  </div>
-  <div px-4 py-3>
-    <ul class="space-y-2">
-      <li>⏱️ Context switches: <strong class="text-green-400">0</strong></li>
-      <li>🐛 Typo risk: <strong class="text-green-400">Zero</strong> (compile-time safety)</li>
-      <li>👀 Manual verification: <strong class="text-green-400">Automated</strong></li>
-      <li>🚀 Time to add flag: <strong class="text-green-400">~2 minutes</strong></li>
-    </ul>
-  </div>
-</div>
-
 </div>
 
 <!--
@@ -1412,205 +1147,262 @@ This isn't just about eliminating errors—it's about keeping developers in flow
 
 ---
 layout: default
-class: px-12 py-10
+class: px-10 py-6
 ---
 
-# Key Takeaways
+# Just the Beginning
 
-<div class="grid grid-cols-2 gap-8 mt-12">
+<div class="text-base opacity-90 mb-6">
+FFDD is under active development and we need your feedback!
+</div>
 
-<div v-click="1" class="flex items-start gap-4">
-<div i-carbon:cloud-monitoring text-4xl text-purple-400 />
-<div>
-<div class="font-semibold text-lg mb-2">Treat flags as declarative infrastructure</div>
-<div class="text-sm opacity-80">Not UI configuration</div>
+<div class="grid grid-cols-2 gap-6 mt-8 max-w-5xl mx-auto">
+
+<div v-click="1">
+<div class="card-purple glow-purple-soft px-5 py-4 h-full">
+  <div class="text-xl font-bold text-gradient-purple mb-3 leading-normal">Future Direction</div>
+  <div class="space-y-2">
+    <div class="flex items-start gap-3">
+      <div
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:data-structured text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Type-safe Context & Tracking</div>
+        <div class="text-sm opacity-70">Evaluation context and tracking events with full type safety</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:laptop text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Local Flag Overrides</div>
+        <div class="text-sm opacity-70">Built-in support for local development overrides</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:code text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Additional Languages</div>
+        <div class="text-sm opacity-70">Expanding code generation beyond current language support</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:plug text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">MCP Server Integrations</div>
+        <div class="text-sm opacity-70">Connect with Model Context Protocol servers</div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 
-<div v-click="2" class="flex items-start gap-4">
-<div i-carbon:flow text-4xl text-purple-400 />
-<div>
-<div class="font-semibold text-lg mb-2">Integrate into your SDLC</div>
-<div class="text-sm opacity-80">Workflows you already use</div>
+<div v-click="2">
+<div class="card-purple glow-purple-soft px-5 py-4 h-full">
+  <div class="text-xl font-bold text-gradient-purple mb-3 leading-normal">Join the Community</div>
+  <div class="space-y-2">
+    <div class="flex items-start gap-3">
+      <div
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:logo-github text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Contribute on GitHub</div>
+        <div class="text-sm opacity-70">Star the repo, open issues, submit PRs</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:chat text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Join the Conversation</div>
+        <div class="text-sm opacity-70">CNCF Slack, community calls, discussions</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:idea text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Share Your Experience</div>
+        <div class="text-sm opacity-70">Feedback, use cases, workflow pain points</div>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div
+        class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+        style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+      >
+        <div class="i-carbon:collaborate text-purple-bright" />
+      </div>
+      <div>
+        <div class="font-semibold text-purple-light">Build Together</div>
+        <div class="text-sm opacity-70">Provider implementations, language generators, tooling</div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-
-<div v-click="3" class="flex items-start gap-4">
-<div i-carbon:checkmark-outline text-4xl text-green-400 />
-<div>
-<div class="font-semibold text-lg mb-2">Use type-safe code generation</div>
-<div class="text-sm opacity-80">Eliminate entire classes of bugs</div>
-</div>
-</div>
-
-<div v-click="4" class="flex items-start gap-4">
-<div i-carbon:rocket text-4xl text-blue-400 />
-<div>
-<div class="font-semibold text-lg mb-2">Leverage GitOps</div>
-<div class="text-sm opacity-80">Safe, auditable flag promotion</div>
-</div>
-</div>
-
-</div>
-
-<!--
-FFDD isn't a new tool—it's a new way of thinking about flags in your workflow
--->
-
----
-layout: section
----
-
-# Call to Action
-
----
-layout: default
-class: px-10 py-8
----
-
-# Try FFDD Today
-
-<div class="grid grid-cols-2 gap-8">
-
-<div>
-
-### Installation Options
-
-```bash
-# via curl (recommended)
-curl -fsSL https://openfeature.dev/scripts/install_cli.sh | sh
-
-# via Docker
-docker run -it -v $(pwd):/local -w /local \
-  ghcr.io/open-feature/cli:latest
-
-# via Go
-go install github.com/open-feature/cli/cmd/openfeature@latest
-```
-
-</div>
-
-<div>
-
-### Quick Start
-
-<div class="space-y-3 mt-4">
-
-<div v-click="1">1. Initialize: `openfeature init`</div>
-
-<div v-click="2">2. Generate code: `openfeature generate [language]`</div>
-
-<div v-click="3">3. Integrate into your CI pipeline</div>
-
-</div>
-
-### Resources
-
-<div class="space-y-2 mt-6 text-sm">
-
-<div v-click="4" flex items-center gap-2>
-  <div i-carbon:document text-purple-400 />
-  <span>Docs: https://github.com/open-feature/cli</span>
-</div>
-
-<div v-click="5" flex items-center gap-2>
-  <div i-carbon:chat text-blue-400 />
-  <span>Slack: #openfeature-cli on CNCF Slack</span>
-</div>
-
-<div v-click="6" flex items-center gap-2>
-  <div i-carbon:code text-green-400 />
-  <span>Examples: github.com/open-feature/cli/tree/main/sample</span>
 </div>
 
 </div>
 
-</div>
-
-</div>
-
-<!-- [Placeholder: QR codes for documentation and Slack] -->
-
-<!--
-Multiple installation options for different workflows. The curl method gets you started in seconds. Docker is great for CI/CD pipelines.
--->
 
 ---
 layout: center
-class: text-center px-20
+class: text-center px-16
 ---
 
-# Join the Movement
+# Let's Build the Future Together
 
-<div v-click="1" class="text-2xl font-semibold my-8">
+<div class="mt-12 text-xl leading-relaxed space-y-3">
 
-"Feature flags enable continuous delivery.
+<v-click>
 
-<span text-purple-500>Feature Flag Driven Development</span> ensures they do so **safely**, **reliably**, and at **scale**."
+Feature flags are too important to be an <span v-mark.underline.purple="1" class="text-purple-400">afterthought</span>.
 
-</div>
+</v-click>
 
-<div v-click="2" class="text-xl mb-8">
+<v-click>
 
-**Let's make flags first-class citizens in the SDLC.**
+They can <span v-mark.underline.blue="2" class="text-blue-400">fundamentally change</span> how we deliver software.
 
-</div>
+</v-click>
 
-<div class="grid grid-cols-2 gap-8 text-left text-sm mt-12">
+<v-click>
 
-<div>
+It's time to treat them that way.
 
-### Get Involved:
-
-<div v-click="3" class="space-y-2 mt-3">
-
-<div flex items-center gap-2>
-  <div i-carbon:star text-yellow-400 />
-  <span>Star the repo: github.com/open-feature/cli</span>
-</div>
-<div flex items-center gap-2>
-  <div i-carbon:chat text-blue-400 />
-  <span>Join CNCF Slack: #openfeature and #openfeature-cli</span>
-</div>
-<div flex items-center gap-2>
-  <div i-carbon:video text-purple-400 />
-  <span>Attend community calls: openfeature.dev/community</span>
-</div>
-<div flex items-center gap-2>
-  <div i-carbon:debug text-red-400 />
-  <span>Report issues or request features</span>
-</div>
-<div flex items-center gap-2>
-  <div i-carbon:collaborate text-green-400 />
-  <span>Share your FFDD experiences and patterns</span>
-</div>
-<div flex items-center gap-2>
-  <div i-carbon:edit text-purple-400 />
-  <span>Contribute to the OpenFeature CNCF project</span>
-</div>
+</v-click>
 
 </div>
 
+<div v-click class="mt-16 text-3xl">
+It's time for Feature Flag Driven Development
 </div>
 
-<div>
+---
+layout: center
+class: text-center
+---
 
-### Connect with the speakers
+<div class="flex flex-col items-center justify-center h-full">
 
-<div v-click="4" class="space-y-3 mt-3">
+<h1 class="text-6xl font-bold mb-8">
+  <span class="text-purple-400" style="text-shadow: 0 0 30px rgba(224, 224, 255, 0.5);">Thank You!</span>
+</h1>
 
-<div>**Michael Beemer**: @beeme1mr (GitHub)</div>
+<div class="text-3xl text-purple-400 mb-12" style="text-shadow: 0 0 20px rgba(183, 185, 255, 0.4);">
+  Questions?
+</div>
 
-<div>**Kris Coleman**: @kriscoleman (GitHub)</div>
+<div class="text-lg text-purple-light opacity-90 mb-12">
+  Find us after the talk or online:
+</div>
+
+<div class="grid grid-cols-2 gap-8 text-left max-w-3xl w-full px-8">
+
+<div
+  class="bg-gradient-card"
+  border="1.5 solid purple-light"
+  rounded-xl
+  overflow-hidden
+  style="box-shadow: 0 8px 32px 0 rgba(60,66,110,0.38), 0 0 0 2px rgba(141,141,255,0.08), 0 0 20px rgba(109, 118, 255, 0.25);"
+>
+  <div
+    flex items-center
+    px-5 py-4
+    class="bg-gradient-purple"
+  >
+    <div
+      class="w-12 h-12 rounded-lg flex items-center justify-center mr-3"
+      style="background: linear-gradient(135deg, rgba(141, 141, 255, 0.4), rgba(183, 185, 255, 0.25)); box-shadow: 0 2px 12px rgba(141,141,255,0.2);"
+    >
+      <div class="i-carbon:link text-purple-bright text-2xl" style="filter: drop-shadow(0 0 8px rgba(224, 224, 255, 0.6));" />
+    </div>
+    <h3 class="text-xl font-bold text-purple-bright">Resources</h3>
+  </div>
+  <div px-5 py-5>
+    <div flex flex-col gap-4 text-base class="text-purple-light">
+      <div flex items-center>
+        <div class="i-carbon:flag mr-3 text-lg" />
+        <span>openfeature.dev</span>
+      </div>
+      <div flex items-center>
+        <div class="i-carbon:logo-github mr-3 text-lg" />
+        <span class="text-sm">github.com/open-feature/cli</span>
+      </div>
+      <div flex items-center>
+        <div class="i-carbon:logo-github mr-3 text-lg" />
+        <span class="text-sm">github.com/open-feature/action</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="bg-gradient-card"
+  border="1.5 solid purple-light"
+  rounded-xl
+  overflow-hidden
+  style="box-shadow: 0 8px 32px 0 rgba(60,66,110,0.38), 0 0 0 2px rgba(141,141,255,0.08), 0 0 20px rgba(109, 118, 255, 0.25);"
+>
+  <div
+    flex items-center
+    px-5 py-4
+    class="bg-gradient-purple"
+  >
+    <div
+      class="w-12 h-12 rounded-lg flex items-center justify-center mr-3"
+      style="background: linear-gradient(135deg, rgba(141, 141, 255, 0.4), rgba(183, 185, 255, 0.25)); box-shadow: 0 2px 12px rgba(141,141,255,0.2);"
+    >
+      <div class="i-carbon:user-multiple text-purple-bright text-2xl" style="filter: drop-shadow(0 0 8px rgba(224, 224, 255, 0.6));" />
+    </div>
+    <h3 class="text-xl font-bold text-purple-bright">Connect</h3>
+  </div>
+  <div px-5 py-5>
+    <div flex flex-col gap-4 text-base class="text-purple-light">
+      <div flex items-center>
+        <div class="i-carbon:logo-slack mr-3 text-lg" />
+        <span>CNCF Slack: #openfeature</span>
+      </div>
+      <div flex items-center>
+        <div class="i-carbon:chat mr-3 text-lg" />
+        <span>OpenFeature Booth</span>
+      </div>
+      <div flex items-center>
+        <div class="i-carbon:logo-twitter mr-3 text-lg" />
+        <span>@openfeature</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 
-<!-- [Placeholder: QR codes for GitHub, Slack, and community page] -->
-
 </div>
-
-</div>
-
-<!--
-This is more than a tool—it's a community-driven approach to solving a universal problem. We'd love to hear your feedback and learn from your experiences. OpenFeature is a CNCF project, and we're building the future of feature flagging together.
--->
