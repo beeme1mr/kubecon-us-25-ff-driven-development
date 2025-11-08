@@ -49,6 +49,16 @@
 import { ref, watch, onMounted, onUnmounted, provide, computed } from 'vue'
 import { useSlideContext } from '@slidev/client'
 
+// Type augmentation for Vite environment variables
+declare global {
+  interface ImportMeta {
+    env: {
+      BASE_URL: string;
+      [key: string]: any;
+    }
+  }
+}
+
 interface Segment {
   click: number;
   action: 'play' | 'resume' | 'pause';
@@ -181,20 +191,22 @@ const videoStyle = computed(() => ({
   width: props.width,
   maxWidth: props.maxWidth
 }))
+
+// Compute video source with base URL
+const videoSrc = computed(() => {
+  const base = import.meta.env.BASE_URL || '/'
+  // Remove trailing slash from base and leading slash from src to avoid double slashes
+  const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base
+  const cleanSrc = props.src.startsWith('/') ? props.src : `/${props.src}`
+  return `${cleanBase}${cleanSrc}`
+})
 </script>
 
 <template>
   <div class="relative presentation-video-container">
-    <video
-      ref="videoRef"
-      :id="'presentation-video'"
-      class="rounded-lg glow-purple-soft"
-      :style="videoStyle"
-      :controls="controls"
-      :muted="muted"
-      :poster="poster"
-    >
-      <source :src="src" type="video/mp4" />
+    <video ref="videoRef" :id="'presentation-video'" class="rounded-lg glow-purple-soft" :style="videoStyle"
+      :controls="controls" :muted="muted" :poster="poster">
+      <source :src="videoSrc" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
