@@ -23,6 +23,7 @@ info: |
   Learn how to treat feature flags as first-class citizens in your development workflow using the OpenFeature CLI and GitOps practices.
 addons:
   - fancy-arrow
+  - slidev-addon-qrcode
 ---
 <!-- markdownlint-disable -->
 
@@ -347,34 +348,89 @@ The string literal is the heart of the problem—no type safety, no validation, 
 
 ---
 layout: default
-class: px-12 py-8
-hide: true
+class: px-10 py-6
 ---
 
-# The Problem Compounds at Scale
+# Real World: Corewell Health
 
-<div v-click="1" class="mt-6">
+<div class="text-base opacity-80 mb-6">Healthcare SSG: offline defaults + dynamic runtime flags</div>
 
-**At one of the largest health systems in the US, daily releases with feature flags boosted velocity but exposed these risks at scale:**
+<div class="grid grid-cols-2 gap-6">
+
+<div v-click="1" class="flex">
+  <div class="card-purple glow-purple-soft px-5 py-4 flex-1">
+    <div class="text-xl font-bold text-gradient-purple mb-3 leading-normal">The Challenge</div>
+    <div class="space-y-3">
+      <div class="flex items-start gap-3">
+        <div
+          class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+          style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+        >
+          <div class="i-carbon:deployment-unit-technical-execution text-purple-bright" />
+        </div>
+        <div>
+          <div class="font-semibold text-purple-light">Atomic Deploys</div>
+          <div class="text-sm opacity-70">Safe defaults + dynamic queries at runtime</div>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <div
+          class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+          style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+        >
+          <div class="i-carbon:tool-kit text-purple-bright" />
+        </div>
+        <div>
+          <div class="font-semibold text-purple-light">Custom System</div>
+          <div class="text-sm opacity-70">Atomic shipping + runtime fallback</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div v-click="2" class="flex">
+  <div class="card-purple glow-purple-soft px-5 py-4 flex-1 flex flex-col">
+    <div class="text-xl font-bold text-gradient-purple mb-3 leading-normal">The Pain</div>
+    <div class="space-y-3 flex-1">
+      <div class="flex items-start gap-3">
+        <div
+          class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+          style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+        >
+          <div class="i-carbon:warning text-purple-bright" />
+        </div>
+        <div>
+          <div class="font-semibold text-purple-light">Build-Time Failures</div>
+          <div class="text-sm opacity-70">Wrong keys → build errors → deployment delays</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 
-<div class="space-y-3 mt-6 text-lg">
-
-<div v-click="2">🔀 **Flag drift** between environments (dev has flags that prod doesn't know about)</div>
-
-<div v-click="3">📊 **Inconsistent definitions** (same flag key, different types/variants across environments)</div>
-
-<div v-click="4">🐛 **Runtime bugs** from typos and undefined flags</div>
-
-<div v-click="5">👥 **Manual coordination** required across teams for every flag change</div>
-
-<div v-click="6">⏰ **Hours wasted** tracking down issues caused by simple flag mismatches</div>
-
+<div v-click="3" class="mt-6">
+  <div class="flex flex-col items-center gap-1">
+    <div class="text-sm font-semibold">Read the full case study</div>
+    <QRCode
+      :width="140"
+      :height="140"
+      type="svg"
+      data="https://kriscodeman.com/blog/ssg-with-feature-flags"
+      :margin="2"
+      :imageOptions="{ margin: 2 }"
+      :dotsOptions="{ type: 'extra-rounded', color: '#FFFFFF' }"
+    />
+    <a href="https://kriscodeman.com/blog/ssg-with-feature-flags" class="text-xs text-purple-300 hover:text-purple-200">
+      kriscodeman.com/blog/ssg-with-feature-flags
+    </a>
+  </div>
 </div>
 
 <!--
-When you're doing daily releases, these problems multiply exponentially—flag hygiene becomes critical for reliability
+Corewell Health is one of the largest health systems in the US. Their static site generation workflow required flags at build time with runtime fallbacks—string literals caused build failures that delayed deployments. This is a perfect example of why we need declarative flags.
 -->
 
 ---
