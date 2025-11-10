@@ -2,6 +2,8 @@
 
 A presentation for **KubeCon + CloudNativeCon North America 2025** demonstrating how to treat feature flags as first-class citizens in your development workflow using OpenFeature CLI and GitOps practices.
 
+**[View the presentation →](https://beeme1mr.github.io/kubecon-us-25-ff-driven-development/)**
+
 ## Speakers
 
 - **Michael Beemer** - Dynatrace
