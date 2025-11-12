@@ -353,9 +353,9 @@ class: px-10 py-6
 
 # Real World: Corewell Health
 
-<div class="text-base opacity-80 mb-6">Healthcare SSG: offline defaults + dynamic runtime flags</div>
+<div class="text-base opacity-80 mb-8">Healthcare SSG: offline defaults + dynamic runtime flags</div>
 
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-3 gap-6">
 
 <div v-click="1" class="flex">
   <div class="card-purple glow-purple-soft px-5 py-4 flex-1">
@@ -373,25 +373,33 @@ class: px-10 py-6
           <div class="text-sm opacity-70">Safe defaults + dynamic queries at runtime</div>
         </div>
       </div>
-      <div class="flex items-start gap-3">
-        <div
-          class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
-          style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
-        >
-          <div class="i-carbon:tool-kit text-purple-bright" />
-        </div>
-        <div>
-          <div class="font-semibold text-purple-light">Custom System</div>
-          <div class="text-sm opacity-70">Atomic shipping + runtime fallback</div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
 
 <div v-click="2" class="flex">
   <div class="card-purple glow-purple-soft px-5 py-4 flex-1 flex flex-col">
-    <div class="text-xl font-bold text-gradient-purple mb-3 leading-normal">The Pain</div>
+    <div class="text-xl font-bold text-gradient-purple mb-3 leading-normal">The Solution</div>
+    <div class="space-y-3 flex-1">
+      <div class="flex items-start gap-3">
+        <div
+          class="bg-gradient-purple w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+          style="box-shadow: 0 1px 8px rgba(141,141,255,0.2);"
+        >
+          <div class="i-carbon:checkmark-outline text-purple-bright" />
+        </div>
+        <div>
+          <div class="font-semibold text-purple-light">Custom System</div>
+          <div class="text-sm opacity-70">Atomic shipping + Runtime fallback</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div v-click="3" class="flex">
+  <div class="card-purple glow-purple-soft px-5 py-4 flex-1 flex flex-col">
+    <div class="text-xl font-bold text-gradient-purple mb-3 leading-normal">The Limitations</div>
     <div class="space-y-3 flex-1">
       <div class="flex items-start gap-3">
         <div
@@ -411,7 +419,7 @@ class: px-10 py-6
 
 </div>
 
-<div v-click="3" class="mt-6">
+<div v-click="4" class="mt-6">
   <div class="flex flex-col items-center gap-1">
     <div class="text-sm font-semibold">Read the full case study</div>
     <QRCode
